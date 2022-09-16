@@ -11,6 +11,15 @@
                       <v-card-text>
                       <form ref="form" @submit.prevent="isRegister ? register() : login()">
                         <v-text-field label="Username" prepend-icon="mdi-account-circle"/>
+                                 <div class="message">
+                                    {{ message }}
+                                 </div>
+                                 <div
+                                    v-if="error"
+                                    class="error"
+                                 >
+                                    Please enter a username with at least seven letters.
+                                 </div>
                             <v-text-field
                                v-model="password"
                                name="password"
@@ -27,6 +36,9 @@
                                type="password"
                                placeholder="confirm password"
                                required
+                               prepend-icon="mdi-lock"
+                               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                               @click:append="showPassword = !showPassword">
                             ></v-text-field>
                             <div class="red--text"> {{errorMessage}}</div>
                             <v-btn type="submit" class="mt-4" color="primary" value="log in">{{isRegister ? stateObj.register.name : stateObj.login.name}}</v-btn>
@@ -52,7 +64,7 @@
        username: "",
        password: "",
        confirmPassword: "",
-       isRegister : false,
+       isRegister : true,
        errorMessage: "",
        stateObj: {
           register :{
@@ -85,6 +97,9 @@
        computed: {
         toggleMessage : function() { 
            return this.isRegister ? this.stateObj.register.message : this.stateObj.login.message }
-     }
+     },
+     error () {
+      return this.username.trim().length < 7
+    }
  };
  </script>

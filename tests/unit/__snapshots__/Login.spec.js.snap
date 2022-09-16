@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login.vue should have a custom title and match snapshot 1`] = `
+<v-app title="Foobar">
+  <v-main>
+    <v-container fluid="" fill-height="">
+      <v-layout align-center="" justify-center="">
+        <v-flex xs12="" sm8="" md4="">
+          <v-card class="elevation-12">
+            <v-toolbar dark="" color="primary">
+              <v-toolbar-title>Vuebook Register</v-toolbar-title>
+            </v-toolbar>
+            <v-card-text>
+              <form>
+                <v-text-field label="Username" prepend-icon="mdi-account-circle"></v-text-field>
+                <v-text-field name="password" label="Password" type="password" prepend-icon="mdi-lock" append-icon="mdi-eye-off"></v-text-field>
+                <v-text-field name="confirmPassword" label="Confirm Password" type="password" placeholder="confirm password" required="" prepend-icon="mdi-lock" append-icon="mdi-eye-off">
+                  &gt;</v-text-field>
+                <div class="red--text"> </div>
+                <v-btn type="submit" color="primary" value="log in" class="mt-4">Register</v-btn>
+                <div class="grey--text mt-4">
+                  Aleady have an Acoount? login.
+                </div>
+              </form>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-main>
+</v-app>
+`;
