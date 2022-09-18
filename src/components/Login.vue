@@ -1,6 +1,17 @@
 <template>
     <v-app>
        <v-main>
+         <v-card dark flat>
+         <v-toolbar flat height="72">
+         <v-switch
+            v-model="$vuetify.theme.dark"
+            hint="This toggles the global state of the Vuebook theme"
+            inset
+            label="Try Vuebook Dark Theme"
+            persistent-hint
+         ></v-switch>
+         </v-toolbar>
+         </v-card>
           <v-container fluid fill-height>
              <v-layout align-center justify-center>
                 <v-flex xs12 sm8 md4>
@@ -25,6 +36,7 @@
                                name="password"
                                label="Password"
                                :type="showPassword ? 'text' : 'password'"
+                                required
                                 prepend-icon="mdi-lock"
                                 :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                                 @click:append="showPassword = !showPassword">
@@ -35,10 +47,9 @@
                                label="Confirm Password"
                                type="password"
                                placeholder="confirm password"
-                               required
                                prepend-icon="mdi-lock"
-                               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                               @click:append="showPassword = !showPassword">
+                               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                               @click:append="show = !show">
                             ></v-text-field>
                             <div class="red--text"> {{errorMessage}}</div>
                             <v-btn type="submit" class="mt-4" color="primary" value="log in">{{isRegister ? stateObj.register.name : stateObj.login.name}}</v-btn>
@@ -65,6 +76,8 @@
        password: "",
        confirmPassword: "",
        isRegister : true,
+       showPassword : false,
+       show : false,
        errorMessage: "",
        stateObj: {
           register :{
