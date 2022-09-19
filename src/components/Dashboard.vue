@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-toolbar color="primary" dark fixed app>
-            <v-toolbar-title>Application</v-toolbar-title>
+            <v-toolbar-title>Vuebook Dashboard</v-toolbar-title>
           </v-toolbar>
      <v-navigation-drawer permanent>
             <v-list>
@@ -50,7 +50,7 @@
         data () {
           return {
             items: [
-              { title: 'Dashboard', icon: 'mdi-view-dashboard' },
+              { title: 'Messages', icon: 'mdi-view-dashboard' },
               { title: 'Photos', icon: 'mdi-image' },
               { title: 'About', icon: 'mdi-help-box' },
             ],

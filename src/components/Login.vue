@@ -51,6 +51,9 @@
                                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                                @click:append="show = !show">
                             ></v-text-field>
+                            <p class="forgot-password text-right mt-2 mb-4">
+                            <router-link to="/forgot-password">Forgot password ?</router-link>
+                            </p>
                             <div class="red--text"> {{errorMessage}}</div>
                             <v-btn type="submit" class="mt-4" color="primary" value="log in">{{isRegister ? stateObj.register.name : stateObj.login.name}}</v-btn>
                             <div class="grey--text mt-4" v-on:click="isRegister = !isRegister;">
