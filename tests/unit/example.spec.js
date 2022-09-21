@@ -1,6 +1,25 @@
 import { shallowMount } from '@vue/test-utils'
-import Dashboard from '@/components/Dashboard.vue'
+import Vuetify from 'vuetify'
+
+// Components
+import { createLocalVue, mount } from '@vue/test-utils'
+// import Dashboard from '@/components/Dashboard.vue'
 import Login from '@/components/Login.vue'
+describe('Login.vue', () => {
+  const localVue = createLocalVue()
+  let vuetify
+
+  beforeEach(() => {
+    vuetify = new Vuetify()
+  })
+
+  const mountFunction = options => {
+    return mount(Login, {
+      localVue,
+      vuetify,
+      ...options,
+    })
+  }
 
 test('but there is a "@" in username@gmail.com ', () => {
   expect('@').toMatch(/@/);

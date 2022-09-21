@@ -12,7 +12,7 @@
          ></v-switch>
          </v-toolbar>
          </v-card>
-          <v-container fluid fill-height>
+          <v-container>
              <v-layout align-center justify-center>
                 <v-flex xs12 sm8 md4>
                    <v-card class="elevation-12">
@@ -21,7 +21,7 @@
                       </v-toolbar>
                       <v-card-text>
                       <form ref="form" @submit.prevent="isRegister ? register() : login()">
-                        <v-text-field label="Username" prepend-icon="mdi-account-circle"/>
+                        <v-text-field label="Username" prepend-icon="mdi-account-circle" />
                                  <div class="message">
                                     {{ message }}
                                  </div>
@@ -62,7 +62,38 @@
                        </form>
                       </v-card-text>
                    </v-card>
-                 
+                   <v-footer
+                     dark
+                     padless
+                  >
+                     <v-card
+                        class="flex"
+                        flat
+                        tile
+                     >
+                        <v-card-title class="teal">
+                        <strong class="subheading">Get connected with us on social networks!</strong>
+
+                        <v-spacer></v-spacer>
+
+                        <v-btn
+                           v-for="icon in icons"
+                           :key="icon"
+                           class="mx-4"
+                           dark
+                           icon
+                        >
+                           <v-icon size="24px">
+                              {{ icon }}
+                           </v-icon>
+                        </v-btn>
+                        </v-card-title>
+
+                        <v-card-text class="py-2 white--text text-center">
+                        {{ new Date().getFullYear() }} — <strong>Vuebook</strong>
+                        </v-card-text>
+                     </v-card>
+                  </v-footer>
                 </v-flex>
              </v-layout>
           </v-container>
@@ -72,9 +103,10 @@
  
  <script>
  export default {
-   name: "App",
+   name: "Login",
    data() {
      return {
+      message: "",
        username: "",
        password: "",
        confirmPassword: "",
@@ -82,6 +114,12 @@
        showPassword : false,
        show : false,
        errorMessage: "",
+       icons: [
+            'mdi-facebook',
+            'mdi-twitter',
+            'mdi-linkedin',
+            'mdi-instagram',
+            ],
        stateObj: {
           register :{
              name: 'Register',
@@ -112,10 +150,12 @@
    },
        computed: {
         toggleMessage : function() { 
-           return this.isRegister ? this.stateObj.register.message : this.stateObj.login.message }
+           return this.isRegister ? this.stateObj.register.message : this.stateObj.login.message 
+         },
+         error () {
+             this.username.length <= 7
+         }
      },
-     error () {
-      return this.username.trim().length < 7
-    }
+     
  };
  </script>

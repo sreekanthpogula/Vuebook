@@ -29,13 +29,11 @@
                    <v-card>
                     </v-card>       
                 </v-flex>
-            </v-layout>
-                
+            </v-layout>        
         </v-container>    
     </v-main>                       
    </v-app>
 </template>
- 
 <script>
     export default {
         data() {
