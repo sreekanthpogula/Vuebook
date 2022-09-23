@@ -30,7 +30,7 @@
   </template>
   <script>
     export default {
-        name : "Recentphotos",
+        name : "RecentPhotos",
         data() {
             return{}
         }

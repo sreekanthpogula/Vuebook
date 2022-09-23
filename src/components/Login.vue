@@ -25,12 +25,12 @@
                                  <div class="message">
                                     {{ message }}
                                  </div>
-                                 <div
+                                 <!-- <div
                                     v-if="error"
                                     class="error"
                                  >
                                     Please enter a username with at least seven letters.
-                                 </div>
+                                 </div> -->
                             <v-text-field
                                v-model="password"
                                name="password"
@@ -103,7 +103,7 @@
  
  <script>
  export default {
-   name: "Login",
+   name: "LoginComponent",
    data() {
      return {
       message: "",
@@ -152,9 +152,6 @@
         toggleMessage : function() { 
            return this.isRegister ? this.stateObj.register.message : this.stateObj.login.message 
          },
-         error () {
-             this.username.length <= 7
-         }
      },
      
  };

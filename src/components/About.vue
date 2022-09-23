@@ -4,7 +4,10 @@
 
   <v-main>
     <v-container>
-      About Vuebook
+      <h1>About Vuebook</h1>
+        <v-container>
+          Vuebook is the Social-media Application designed using Vuejs Technology.It is similar to the Facebook Application in the Interface Design.We have used Vuetify for the Materialistic UI Component Design. 
+        </v-container>
     </v-container>
   </v-main>
 </v-app>
@@ -13,7 +16,7 @@
 
 <script>
     export default {
-        name : "About",
+        name : "AboutVuebook",
         
     }
 </script>

@@ -3,9 +3,7 @@
         <v-toolbar color="primary" dark fixed app>
             <v-toolbar-title>Vuebook Dashboard</v-toolbar-title>
           </v-toolbar>
-          <div class="some-calss">
-
-          
+          <div class="some-class">    
      <v-navigation-drawer permanent>
             <v-list>
               <v-list-item class="px-2">
@@ -49,10 +47,12 @@
             </v-list-item>
           </v-list>
           <v-card>
-              &#9824;Vuebook &#0153;
+              &#9824;
+              Vuebook
           </v-card>
         </v-navigation-drawer>
-<router-view></router-view>
+      <router-view>
+      </router-view>
       </div>
         <v-footer
     dark
@@ -91,7 +91,7 @@
     
     <script>
       export default {
-        name : "Dashboard",
+        name : "DashBoard",
         data () {
           return {
             items: [
@@ -112,15 +112,12 @@
         methods: {
           logout() {
             this.$router.replace({name:'login'})
-          },
-          Navigate() {
-            this.$router.replace({name:'Recentchats'})
           },  
         }
       }
     </script>
     <style>
-      .some-calss{
+      .some-class{
         display: flex
       }
     </style>

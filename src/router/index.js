@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
-import RecentEmails from '../components/RecentEmails.vue'
-import Recentphotos from '../components/Recentphotos.vue'
-import Recentchats from '../components/Recentchats.vue'
-import ForgotPassword from '../components/ForgotPassword.vue'
 
+// const router = Router.createRouter({
+//   //Provide the history implementation to use. We are using the hash history for simplicity here.
+//   history: Router.createWebHashHistory(),
+//   router, // short for `routes: routes`
+// })
 Vue.use(Router)
+
 
 export default new Router({
   routes: [
@@ -26,11 +28,6 @@ export default new Router({
           path: 'recentchats',
           name: 'Recentchats',
           component: () => import('../components/Recentchats.vue')
-        },
-        {
-          path: '/forgot-password',
-          name: 'ForgotPassword',
-          component: () => import('../components/ForgotPassword.vue')
         },
         // {
         //   path: '/dashboard/recentchats',
@@ -59,5 +56,5 @@ export default new Router({
       name: 'ForgotPassword',
       component: () => import('../components/ForgotPassword.vue')
     },
-  ]
+  ],
 })

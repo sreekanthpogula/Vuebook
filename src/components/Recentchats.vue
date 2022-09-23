@@ -70,11 +70,10 @@
   
   <script>
     export default {
-        name : "Recentchats",
+        name : "RecentChats",
       data: () => ({
         recent: [
           {
-            active: true,
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
             title: 'Jason Oner',
           },
