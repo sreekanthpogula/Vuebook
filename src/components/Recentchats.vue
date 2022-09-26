@@ -1,240 +1,450 @@
 <template>
-  <div>
-    <v-app>
-        <v-container
-          class="fill-height pa-0 "
-        >
-          <v-row class="no-gutters elevation-4">
-            <v-col
-              cols="12" sm="3"
-              class="flex-grow-1 flex-shrink-0"
-              style="border-right: 1px solid #0000001f;"
+  <v-card
+      class="mx-auto"
+      max-width="1500"
+    >
+  <v-app>
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12" sm="3" class="border">
+          
+            <v-app-bar flat color="rgba(0,0,0,0)">
+               <v-btn
+                tile
+                color="white" x-large block>
+                <v-icon left color="blue">
+                fas fa-plus
+                </v-icon>
+                <v-divider
+                  class="mx"
+                ></v-divider>
+                welcome to Vuebook
+              </v-btn>
+            </v-app-bar>
+           
+              <v-app-bar flat color="rgba(0,0,0,0)">
+                <v-toolbar-title class="title">
+              Recent Chats 
+            </v-toolbar-title>
+
+            <v-spacer></v-spacer>
+            <v-btn
+              icon
             >
-              <v-responsive
-                class="overflow-y-auto fill-height"
-                height="500"
+              <v-icon>fas fa-ellipsis-h</v-icon>
+            </v-btn>
+              </v-app-bar>
+             <v-app-bar flat color="rgba(0,0,0,0)">
+
+       <v-text-field
+            filled
+            label="Search Here"
+            append-icon="mdi-magnify"
+            color="grey"
+          ></v-text-field>
+             </v-app-bar>
+            
+ <v-list two-line color="rgba(0,0,0,0)">
+      <v-list-item-group
+        v-model="selected"
+        active-class="blue lighten-4"
+        multiple
+      >
+        <template v-for="(item, index) in items" >
+          <v-list-item :key="item.title">
+            <v-badge
+        bordered
+        bottom
+        color="green"
+        dot
+        offset-x="22"
+        offset-y="26"
+      >
+            <v-list-item-avatar>
+            <v-img :src="item.avatar"></v-img>
+          </v-list-item-avatar>
+            </v-badge>
+            <template >
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+
+                <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
+              </v-list-item-content>
+            </template>
+          </v-list-item>
+
+          <v-divider
+            v-if="index < items.length - 1"
+            :key="index"
+          ></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
+           
+        </v-col>
+        <v-col cols="12" sm="6" class="border">
+          <v-app-bar color="rgba(0,0,0,0)" flat>
+            <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="11"
+                offset-y="13"
               >
-                <v-list subheader>
-                  <v-list-item-group v-model="activeChat">
-                    <template v-for="(item, index) in parents">
-                      <v-list-item
-                        :key="`parent${index}`"
-                        :value="item.id"
-                      >
-                        <v-list-item-avatar color="grey lighten-1 white--text">
-                          <v-icon>
-                            chat_bubble
-                          </v-icon>
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                          <v-list-item-title v-text="item.title" />
-                          <v-list-item-subtitle v-text="'hi'" />
-                        </v-list-item-content>
-                        <v-list-item-icon>
-                          <v-icon :color="item.active ? 'deep-purple accent-4' : 'grey'">
-                            chat_bubble
-                          </v-icon>
-                        </v-list-item-icon>
-                      </v-list-item>
-                      <v-divider
-                        :key="`chatDivider${index}`"
-                        class="my-0"
-                      />
-                    </template>
-                  </v-list-item-group>
+                <v-avatar class="mt-n7" size="40" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/1.jpg" />
+                </v-avatar>
+             </v-badge>
+             <v-toolbar-title class="title pl-0 ml-2 mt-n4">
+               Sreekanth Pogula
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-title class="title pl-0 mr-2 mt-n4">
+               Members :
+            </v-toolbar-title>
+            <v-btn
+              color="blue"
+              icon
+              class="mt-n5 mr-n2"
+              outlined
+              max-height="35"
+              max-width="35"
+            >
+              <v-icon small>fas fa-plus</v-icon>
+            </v-btn>
+            <v-avatar class="mt-n5 mr-2" size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/5.jpg" />
+            </v-avatar>
+            <v-divider vertical inset class="mt-n1"></v-divider>
+            <v-btn
+              color="black"
+              icon
+              class="mt-n5"
+            >
+              <v-icon>mdi-cog</v-icon>
+            </v-btn>
+          </v-app-bar>
+           <v-app-bar color="rgba(0,0,0,0)" flat class="mb-16">
+          
+            <v-spacer></v-spacer>
+            <v-card class="mt-10 mr-2" max-width="350px" color="blue" dark>
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class=" mb-4">
+          Good morning. How are you today? 
+        </div>
+        <v-list-item-subtitle>16 mins ago <span class="ml-16">Seen 1:03PM</span></v-list-item-subtitle>  
+      </v-list-item-content>
+    </v-list-item>
+  </v-card >
+            <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="10"
+                offset-y="10"
+              >
+            <v-avatar class="mt-n5 " size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/5.jpg" />
+            </v-avatar>
+            </v-badge>
+          </v-app-bar>
+           <v-app-bar color="rgba(0,0,0,0)" flat class="mb-16">
+          <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="16"
+                offset-y="9"
+              >
+            <v-avatar class="mt-n5 mr-2" size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/1.jpg" />
+            </v-avatar>
+            </v-badge>
+            <v-card class="mt-10 " max-width="350px">
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class=" mb-4">
+          Hey! Very good.I'm taking a photos in the office
+        </div>
+        <v-list-item-subtitle>12 mins ago</v-list-item-subtitle>  
+      </v-list-item-content>
+    </v-list-item>
+  </v-card >
+            <v-btn
+              color="black"
+              icon
+              class="mb-n10"
+            >
+              <v-icon>fas fa-ellipsis-h</v-icon>
+            </v-btn>
+          </v-app-bar>
+          <v-app-bar color="rgba(0,0,0,0)" flat class="mb-16">
+          <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="10"
+                offset-y="10"
+              >
+            <v-avatar class="mt-n5 " size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/1.jpg" />
+            </v-avatar>
+            </v-badge>
+            <v-card class="mt-10 ml-2" max-width="350px">
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class=" mb-4">
+          Fernando shared 3 photos :<br><br>
+           <v-avatar
+                size="60"
+                tile
+                class="mr-2"
+              >
+                <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+              </v-avatar>
+              <v-avatar
+                size="60"
+                tile
+                class="mr-2"
+              >
+                <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+              </v-avatar>
+              <v-avatar
+                size="60"
+                tile
+              >
+                <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+              </v-avatar>
+        </div>
+       
+        <v-list-item-subtitle>12 mins ago</v-list-item-subtitle>  
+      </v-list-item-content>
+    </v-list-item>
+  </v-card >
+           
+          </v-app-bar>
+           <v-app-bar color="rgba(0,0,0,0)" flat class="mb-8">
+          
+            <v-spacer></v-spacer>
+            <v-card class="mt-10 mr-2" max-width="350px" color="blue" dark>
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class=" mb-4">
+          There many variations of passages of Loream
+        </div>
+        <v-list-item-subtitle>5 mins ago <span class="ml-16">Seen 1:23PM</span></v-list-item-subtitle>  
+      </v-list-item-content>
+    </v-list-item>
+  </v-card >
+            <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="10"
+                offset-y="10"
+              >
+            <v-avatar class="mt-n5 " size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/5.jpg" />
+            </v-avatar>
+            </v-badge>
+          </v-app-bar>
+          <v-app-bar color="rgba(0,0,0,0)" flat class="mb-16">
+          
+            <v-spacer></v-spacer>
+            <v-card class="mt-10 mr-2" max-width="350px" color="blue" dark>
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class=" mb-4">
+          Good Bye
+        </div>
+        <v-list-item-subtitle>2 mins ago <span class="ml-16">Seen 1:30PM</span></v-list-item-subtitle>  
+      </v-list-item-content>
+    </v-list-item>
+  </v-card >
+            <v-badge  
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="10"
+                offset-y="10"
+              >
+            <v-avatar class="mt-n5 " size="30" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/5.jpg" />
+            </v-avatar>
+            </v-badge>
+          </v-app-bar>
+         <v-app-bar color="rgba(0,0,0,0)" flat>
+            <v-text-field
+            
+            v-model="message"
+            append-icon="mdi-emoticon"
+            :append-outer-icon="message ? 'mdi-send' : 'mdi-microphone'"
+            filled
+            clear-icon="mdi-close-circle"
+            clearable
+            label="Message"
+            type="text"
+            @click:append-outer="sendMessage"
+            @click:clear="clearMessage"
+          ></v-text-field>
+         </v-app-bar>
+        </v-col>
+        <v-col cols="12" sm="3">
+          <v-card class="text-center mt-8 mb-3" shaped >
+             <v-badge
+                bordered
+                bottom
+                color="green"
+                dot
+                offset-x="11"
+                offset-y="13"
+              >
+                <v-avatar class="mt-n7" size="60" elevation="10">
+                  <img src="https://cdn.vuetifyjs.com/images/lists/1.jpg" />
+                </v-avatar>
+             </v-badge>
+                <v-card-title class="layout justify-center">Fernando Gaucho</v-card-title>
+                <v-card-subtitle class="layout justify-center">CEO & Founder at Highly inc</v-card-subtitle>
+                <v-list>
                 </v-list>
-              </v-responsive>
-            </v-col>
-            <v-col
-              cols="auto"
-              class="flex-grow-1 flex-shrink-0"
-            >
-              <v-responsive
-                v-if="activeChat"
-                class="overflow-y-hidden fill-height"
-                height="500"
-              >
-                <v-card
-                  flat
-                  class="d-flex flex-column fill-height"
-                >
-                  <v-card-title>
-                    john doe
-                  </v-card-title>
-                  <v-card-text class="flex-grow-1 overflow-y-auto">
-                    <div v-for="(msg, i) in messages" :key="i">
-                      <div :class="{ 'd-flex flex-row-reverse':msg.me }"
-                      >
-                        <v-menu offset-y>
-                          <template v-slot:activator="{ on }">
-                            <v-hover
-                              v-slot:default="{ hover }"
-                            >
-                              <v-chip
-                                :color="msg.me ? 'primary' : ''"
-                                dark
-                                style="height:auto;white-space: normal;"
-                                class="pa-4 mb-2"
-                                v-on="on"
-                              >
-                                {{ msg.content }}
-                                <sub
-                                  class="ml-2"
-                                  style="font-size: 0.5rem;"
-                                >{{ msg.created_at }}</sub>
-                                <v-icon
-                                  v-if="hover"
-                                  small
-                                >
-                                  expand_more
-                                </v-icon>
-                              </v-chip>
-                            </v-hover>
-                          </template>
-                          <v-list>
-                            <v-list-item>
-                              <v-list-item-title>delete</v-list-item-title>
-                            </v-list-item>
-                          </v-list>
-                        </v-menu>
-                      </div>
-                    </div>
-                  </v-card-text>
-                  <v-card-text class="flex-shrink-1">
-                      <v-text-field
-                      v-model="messageForm.content"
-                      label="type_a_message"
-                      type="text"
-                      no-details
-                      outlined
-                      append-outer-icon="send"
-                      @keyup.enter="messages.push(messageForm)"
-                      @click:append-outer="messages.push(messageForm)"
-                      hide-details
-                    />
-                  </v-card-text>
-                </v-card>
-              </v-responsive>
-            </v-col>
-          </v-row>
-        </v-container>
-    </v-app>
-</div>
+              </v-card>
+              <v-expansion-panels v-model="panel" multiple>
+    <v-expansion-panel>
+      <v-expansion-panel-header>
+        <h3>Images(5)</h3>   
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+ <v-expansion-panel >
+      <v-expansion-panel-header>
+        <h3>Files(3) </h3>  
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-list shaped>
+      <v-list-item-group
+        
+      >
+        <v-list-item
+          v-for="(item, i) in files"
+          :key="i"
+        >
+          <v-list-item-icon>
+            <v-icon v-text="item.icon" color="green"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.text"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+    <v-expansion-panel>
+      <v-expansion-panel-header>
+        <h3>Pinned items</h3>   
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+
+    
+  </v-expansion-panels>
+  
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
+  </v-card>
 </template>
 <script>
 export default {
   name : 'RecentChats',
   data: () => ({
-    activeChat: 1,
-    parents: [
-      {
-        id: 1,
-        title: "john doe",
-        active: true
+     selected: [2],
+      items: [
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+          subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          title: 'Ali Connors',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+          subtitle: `Wish I could come, but I'm out of town this weekend.`,
+          title: 'me, Scrott, Jennifer',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?',
+          title: 'Sandra Adams',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+          subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
+          title: 'Trevor Hansen',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+          title: 'Britta Holt',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+          subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          title: 'Connors',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+          subtitle: `Wish I could come, but I'm out of town this weekend.`,
+          title: ' Jennifer',
+        },
+        {
+           avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?',
+          title: 'Sandra ',
+        },
+      ],
+      files: [
+        { text: 'Confidential.zip', icon: ' mdi-cloud-upload' },
+        { text: 'Requirements.pdf', icon: ' mdi-cloud-upload' },
+        { text: 'Final.docx', icon: ' mdi-cloud-upload' },
+      ],
+     panel: [2],
+    
+      password: 'Password',
+      show: false,
+      message: 'Type a message here',
+      marker: true,
+      iconIndex: 0,
+
+      
+  }),
+  methods: {
+      sendMessage () {
+        this.resetIcon()
+        this.clearMessage()
       },
-      {
-        id: 3,
-        title: "scarlett",
-        active: false
+      clearMessage () {
+        this.message = ''
       },
-      {
-        id: 4,
-        title: "lavanya",
-        active: false
+      resetIcon () {
+        this.iconIndex = 0
       },
-      {
-        id: 5,
-        title: "manoj",
-        active: false
-      },
-      {
-        id: 6,
-        title: "abhishek",
-        active: false
-      },
-      {
-        id: 7,
-        title: "karan",
-        active: false
-      },
-      {
-        id: 8,
-        title: "amar",
-        active: false
-      },
-      {
-        id: 9,
-        title: "Shershika",
-        active: false
-      },
-      {
-        id: 10,
-        title: "Satya",
-        active: false
-      },
-      {
-        id: 11,
-        title: "usha",
-        active: false
-      },
-      {
-        id: 12,
-        title: "deepika",
-        active: false
-      },
-      {
-        id: 13,
-        title: "sumaja",
-        active: false
-      },
-      {
-        id: 14,
-        title: "asma",
-        active: false
-      }
-    ],
-    messages: [
-      {
-        content: "lorem ipsum",
-        me: true,
-        created_at: "11:11am"
-      },
-      {
-        content: "dolor",
-        me: false,
-        created_at: "11:11am"
-      },
-      {
-        content: "dolor",
-        me: false,
-        created_at: "11:11am"
-      },
-      {
-        content: "dolor",
-        me: false,
-        created_at: "11:11am"
-      },
-      {
-        content: "dolor",
-        me: true,
-        created_at: "11:11am"
-      },
-      {
-        content: "dolor",
-        me: false,
-        created_at: "11:12am"
-      },
-      {
-        content: "dolor",
-        me: false,
-        created_at: "11:14am"
-      }
-    ],
-    messageForm: {
-      content: "",
-      me: true,
-      created_at: "11:11am"
-    }
-  })
-}
+    },
+  
+};
 </script>
+<style scoped>
+.border {
+  border-right: 1px solid grey;
+}
+</style>

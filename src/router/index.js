@@ -22,25 +22,20 @@ export default new Router({
           name: 'Recentchats',
           component: () => import('../components/Recentchats.vue')
         },
-        // {
-        //   path: '/dashboard/recentchats',
-        //   name: 'Recentchats',
-        //   component: () => import('../components/Recentchats.vue')
-        // },
         {
           path: '/recentphotos',
           name: 'Recentphotos',
           component: () => import('../components/Recentphotos.vue')
         },
         {
-          path: '/recentemail',
-          name: 'RecentEmails',
-          component: () => import('../components/RecentEmails.vue')
-        },
-        {
           path: '/about',
           name: 'About',
           component: () => import('../components/About.vue')
+        },
+        {
+          path: '/recentemail',
+          name: 'RecentEmails',
+          component: () => import('../components/RecentEmails.vue')
         },
       ]
     },

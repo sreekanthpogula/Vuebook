@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-toolbar color="primary" dark fixed app>
-            <v-toolbar-title>Vuebook Dashboard</v-toolbar-title>
+            <v-toolbar-title class="pa-0">Vuebook Dashboard</v-toolbar-title>
           </v-toolbar>
           <div class="some-class">    
      <v-navigation-drawer permanent>
@@ -91,34 +91,33 @@
     
     <script>
       export default {
-        name : "DashBoard",
-        data () {
-          return {
+    name: "DashBoard",
+    data() {
+        return {
             items: [
-              { title: 'RecentChats', icon: 'mdi-message-text' , xyz: 'Recentchats'},
-              { title: 'RecentPics', icon: 'mdi-image'  , xyz: 'Recentphotos'},
-              { title: 'Emails', icon: 'mdi-email'  , xyz: 'RecentEmails'},
-              { title: 'About', icon: 'mdi-help-box'  , xyz: 'About'},
+                { title: "RecentChats", icon: "mdi-message-text", xyz: "Recentchats" },
+                { title: "RecentPics", icon: "mdi-image", xyz: "Recentphotos" },
+                { title: "Emails", icon: "mdi-email", xyz: "RecentEmails" },
+                { title: "About", icon: "mdi-help-box", xyz: "About" },
             ],
             icons: [
-            'mdi-facebook',
-            'mdi-twitter',
-            'mdi-linkedin',
-            'mdi-instagram',
+                "mdi-facebook",
+                "mdi-twitter",
+                "mdi-linkedin",
+                "mdi-instagram",
             ],
-            username:this.$route.params.username
-          }
+            username: this.$route.params.username
+        };
+    },
+    methods: {
+        logout() {
+            this.$router.replace({ name: "login" });
         },
-        methods: {
-          logout() {
-            this.$router.replace({name:'login'})
-          },  
-        }
-      }
-    </script>
-    <style>
+    },
+}
+</script>
+<style>
       .some-class{
         display: flex;
-        min-width: 1600px;
       }
-    </style>
+</style>
