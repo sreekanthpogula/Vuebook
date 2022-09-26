@@ -118,6 +118,7 @@
     </script>
     <style>
       .some-class{
-        display: flex
+        display: flex;
+        min-width: 1600px;
       }
     </style>

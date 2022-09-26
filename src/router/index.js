@@ -3,14 +3,7 @@ import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 
-// const router = Router.createRouter({
-//   //Provide the history implementation to use. We are using the hash history for simplicity here.
-//   history: Router.createWebHashHistory(),
-//   router, // short for `routes: routes`
-// })
 Vue.use(Router)
-
-
 export default new Router({
   routes: [
     {

@@ -1,100 +1,240 @@
 <template>
-    <v-card
-      class="mx-auto"
-      max-width="500"
-    >
-      <v-toolbar
-        color="deep-purple accent-4"
-        dark
-      >
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-  
-        <v-toolbar-title>New Chat</v-toolbar-title>
-  
-        <v-spacer></v-spacer>
-  
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </v-toolbar>
-  
-      <v-list subheader>
-        <v-subheader>Recent chat</v-subheader>
-  
-        <v-list-item
-          v-for="chat in recent"
-          :key="chat.title"
+  <div>
+    <v-app>
+        <v-container
+          class="fill-height pa-0 "
         >
-          <v-list-item-avatar>
-            <v-img
-              :alt="`${chat.title} avatar`"
-              :src="chat.avatar"
-            ></v-img>
-          </v-list-item-avatar>
-  
-          <v-list-item-content>
-            <v-list-item-title v-text="chat.title"></v-list-item-title>
-          </v-list-item-content>
-  
-          <v-list-item-icon>
-            <v-icon :color="chat.active ? 'deep-purple accent-4' : 'grey'">
-              mdi-message-outline
-            </v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-      </v-list>
-  
-      <v-divider></v-divider>
-  
-      <v-list subheader>
-        <v-subheader>Previous chats</v-subheader>
-  
-        <v-list-item
-          v-for="chat in previous"
-          :key="chat.title"
-        >
-          <v-list-item-avatar>
-            <v-img
-              :alt="`${chat.title} avatar`"
-              :src="chat.avatar"
-            ></v-img>
-          </v-list-item-avatar>
-  
-          <v-list-item-content>
-            <v-list-item-title v-text="chat.title"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-card>
-  </template>
-  
-  <script>
-    export default {
-        name : "RecentChats",
-      data: () => ({
-        recent: [
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            title: 'Jason Oner',
-          },
-          {
-            active: true,
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-            title: 'Mike Carlson',
-          },
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-            title: 'Cindy Baker',
-          },
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-            title: 'Ali Connors',
-          },
-        ],
-        previous: [{
-          title: 'Travis Howard',
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-        }],
-      }),
+          <v-row class="no-gutters elevation-4">
+            <v-col
+              cols="12" sm="3"
+              class="flex-grow-1 flex-shrink-0"
+              style="border-right: 1px solid #0000001f;"
+            >
+              <v-responsive
+                class="overflow-y-auto fill-height"
+                height="500"
+              >
+                <v-list subheader>
+                  <v-list-item-group v-model="activeChat">
+                    <template v-for="(item, index) in parents">
+                      <v-list-item
+                        :key="`parent${index}`"
+                        :value="item.id"
+                      >
+                        <v-list-item-avatar color="grey lighten-1 white--text">
+                          <v-icon>
+                            chat_bubble
+                          </v-icon>
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                          <v-list-item-title v-text="item.title" />
+                          <v-list-item-subtitle v-text="'hi'" />
+                        </v-list-item-content>
+                        <v-list-item-icon>
+                          <v-icon :color="item.active ? 'deep-purple accent-4' : 'grey'">
+                            chat_bubble
+                          </v-icon>
+                        </v-list-item-icon>
+                      </v-list-item>
+                      <v-divider
+                        :key="`chatDivider${index}`"
+                        class="my-0"
+                      />
+                    </template>
+                  </v-list-item-group>
+                </v-list>
+              </v-responsive>
+            </v-col>
+            <v-col
+              cols="auto"
+              class="flex-grow-1 flex-shrink-0"
+            >
+              <v-responsive
+                v-if="activeChat"
+                class="overflow-y-hidden fill-height"
+                height="500"
+              >
+                <v-card
+                  flat
+                  class="d-flex flex-column fill-height"
+                >
+                  <v-card-title>
+                    john doe
+                  </v-card-title>
+                  <v-card-text class="flex-grow-1 overflow-y-auto">
+                    <div v-for="(msg, i) in messages" :key="i">
+                      <div :class="{ 'd-flex flex-row-reverse':msg.me }"
+                      >
+                        <v-menu offset-y>
+                          <template v-slot:activator="{ on }">
+                            <v-hover
+                              v-slot:default="{ hover }"
+                            >
+                              <v-chip
+                                :color="msg.me ? 'primary' : ''"
+                                dark
+                                style="height:auto;white-space: normal;"
+                                class="pa-4 mb-2"
+                                v-on="on"
+                              >
+                                {{ msg.content }}
+                                <sub
+                                  class="ml-2"
+                                  style="font-size: 0.5rem;"
+                                >{{ msg.created_at }}</sub>
+                                <v-icon
+                                  v-if="hover"
+                                  small
+                                >
+                                  expand_more
+                                </v-icon>
+                              </v-chip>
+                            </v-hover>
+                          </template>
+                          <v-list>
+                            <v-list-item>
+                              <v-list-item-title>delete</v-list-item-title>
+                            </v-list-item>
+                          </v-list>
+                        </v-menu>
+                      </div>
+                    </div>
+                  </v-card-text>
+                  <v-card-text class="flex-shrink-1">
+                      <v-text-field
+                      v-model="messageForm.content"
+                      label="type_a_message"
+                      type="text"
+                      no-details
+                      outlined
+                      append-outer-icon="send"
+                      @keyup.enter="messages.push(messageForm)"
+                      @click:append-outer="messages.push(messageForm)"
+                      hide-details
+                    />
+                  </v-card-text>
+                </v-card>
+              </v-responsive>
+            </v-col>
+          </v-row>
+        </v-container>
+    </v-app>
+</div>
+</template>
+<script>
+export default {
+  name : 'RecentChats',
+  data: () => ({
+    activeChat: 1,
+    parents: [
+      {
+        id: 1,
+        title: "john doe",
+        active: true
+      },
+      {
+        id: 3,
+        title: "scarlett",
+        active: false
+      },
+      {
+        id: 4,
+        title: "lavanya",
+        active: false
+      },
+      {
+        id: 5,
+        title: "manoj",
+        active: false
+      },
+      {
+        id: 6,
+        title: "abhishek",
+        active: false
+      },
+      {
+        id: 7,
+        title: "karan",
+        active: false
+      },
+      {
+        id: 8,
+        title: "amar",
+        active: false
+      },
+      {
+        id: 9,
+        title: "Shershika",
+        active: false
+      },
+      {
+        id: 10,
+        title: "Satya",
+        active: false
+      },
+      {
+        id: 11,
+        title: "usha",
+        active: false
+      },
+      {
+        id: 12,
+        title: "deepika",
+        active: false
+      },
+      {
+        id: 13,
+        title: "sumaja",
+        active: false
+      },
+      {
+        id: 14,
+        title: "asma",
+        active: false
+      }
+    ],
+    messages: [
+      {
+        content: "lorem ipsum",
+        me: true,
+        created_at: "11:11am"
+      },
+      {
+        content: "dolor",
+        me: false,
+        created_at: "11:11am"
+      },
+      {
+        content: "dolor",
+        me: false,
+        created_at: "11:11am"
+      },
+      {
+        content: "dolor",
+        me: false,
+        created_at: "11:11am"
+      },
+      {
+        content: "dolor",
+        me: true,
+        created_at: "11:11am"
+      },
+      {
+        content: "dolor",
+        me: false,
+        created_at: "11:12am"
+      },
+      {
+        content: "dolor",
+        me: false,
+        created_at: "11:14am"
+      }
+    ],
+    messageForm: {
+      content: "",
+      me: true,
+      created_at: "11:11am"
     }
-  </script>
+  })
+}
+</script>
