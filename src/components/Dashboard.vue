@@ -1,10 +1,10 @@
 <template>
-  <v-app>
-    <v-toolbar color="primary" dark fixed app>
+  <div class="app-layout">
+    <v-toolbar class="header" color="primary" dark fixed app>
       <v-toolbar-title>Vuebook Dashboard</v-toolbar-title>
     </v-toolbar>
-    <div class="some-class">
-      <v-navigation-drawer permanent>
+    <div class="app-layout-content">
+      <v-navigation-drawer class="side-bar" permanent>
         <v-list>
           <v-list-item class="px-2">
             <v-list-item-avatar>
@@ -47,9 +47,11 @@
         </v-list>
         <v-card> &#9824; Vuebook </v-card>
       </v-navigation-drawer>
-      <router-view> </router-view>
+      <v-container fluid class="content">
+        <router-view> </router-view>
+      </v-container>
     </div>
-    <v-footer dark padless>
+    <v-footer class="footer" dark padless>
       <v-card class="flex" flat tile>
         <v-card-title class="blue">
           <strong class="subheading">Get connected with us on social networks!</strong>
@@ -68,7 +70,7 @@
         </v-card-text>
       </v-card>
     </v-footer>
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -98,13 +100,30 @@ export default {
   padding-left: 4px;
   padding-right: 4px;
 }
-.some-class {
+.app-layout-content {
+  height: calc(100vh - 123px);
   display: flex;
-  max-width: 1500px;
 }
 .container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+}
+
+.app-layout{
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.app-layout .header, .app-layout .footer {
+  max-height: 64px;
+}
+
+.app-layout-content .side-bar{
+  min-width: 256px;
+}
+
+.app-layout-content .content {
+  overflow-y: scroll;
 }
 </style>
