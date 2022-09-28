@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="">
+  <v-card>
     <v-toolbar color="pink" dark>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
