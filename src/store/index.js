@@ -1,33 +1,48 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { createStore } from 'vuex'
 
 Vue.use(Vuex)
 
-export default createStore({
+const store = new Vuex.Store({
   state: {
-    images: ''
+    dogimages: '',
+
   },
   getters: {
     loadImage(state) {
-      return state.images 
+       return state.images
     }
   },
   mutations: {
-    newImage(state, randomImage) {
+    getCatImage(state, randomImage) {
+     state.images = randomImage
+    },
+    getDogImage(state, randomImage) {
       state.images = randomImage
-    }
+     },
   },
   actions: {
-    getImage({ commit }) {
-      console.log('getImage(action)')
-      axios('https://picsum.photos/200')
+    getCatImage({ commit }) {
+      console.log('getCatImage(action)')
+      axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo')
       .then(response => {
-        commit('getImage', response.data)
+        commit('getCatImage', response.data)
       })
     },
+    getDogImage({ commit }) {
+      console.log('getDogImage(action)')
+      axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo')
+      .then(response => {
+        commit('getDogImage', response.data)
+        
+      })
+    },
+
   },
   modules: {
   }
 })
+export default store
+
+// 30231407-63b59e473c794efcc287ff34f

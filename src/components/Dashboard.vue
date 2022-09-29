@@ -37,7 +37,9 @@
                   elevation="1"
                   rounded
                   color="#1976d2"
-                  :to="{ name: item.xyz }"
+                  :to="{
+                    name: item.xyz,
+                  }"
                 >
                   {{ item.title }}
                 </v-btn>
