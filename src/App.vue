@@ -1,8 +1,11 @@
 <template>
   <v-app>
+    <!-- <v-container fluid class="grey lighten-5"> -->
     <router-view />
+    <!-- </v-container> -->
   </v-app>
 </template>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

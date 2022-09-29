@@ -105,7 +105,6 @@ export default {
 .app-layout-content {
   height: calc(100vh - 123px);
   display: flex;
-  max-width: 1500px;
 }
 .container {
   width: 100%;
