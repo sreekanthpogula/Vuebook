@@ -6,39 +6,26 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    dogimages: '',
-
+    imageData: null,
   },
   getters: {
-    loadImage(state) {
-       return state.images
+    images(state) {
+       return state.imageData?.hits
     }
   },
   mutations: {
-    getCatImage(state, randomImage) {
-     state.images = randomImage
+    setImageData(state, data) {
+     state.imageData = data
     },
-    getDogImage(state, randomImage) {
-      state.images = randomImage
-     },
   },
   actions: {
-    getCatImage({ commit }) {
-      console.log('getCatImage(action)')
+    getImages({ commit }) {
       axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo')
       .then(response => {
-        commit('getCatImage', response.data)
+        commit('setImageData', response.data)
+        console.log('response', response.data)
       })
     },
-    getDogImage({ commit }) {
-      console.log('getDogImage(action)')
-      axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo')
-      .then(response => {
-        commit('getDogImage', response.data)
-        
-      })
-    },
-
   },
   modules: {
   }
