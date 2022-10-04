@@ -1,19 +1,28 @@
 <template>
   <div id="details">
     <div class="container">
-      <v-row v-for="(image, index) in images" :key="index" class="col-md-12" cols="4"
+      <v-row v-for="(image, index) in images" :key="index"
         ><div v-if="imageid == image.id">
           <v-img
             :src="image.userImageURL"
             :lazy-src="image.userImageURL"
             aspect-ratio="0"
-            class=""
           ></v-img>
-          <h1>
-            The Details of the image are : ID:{{ image.id }}, Type:{{
-              image.type
-            }},Tags:{{ image.tags }},User:{{ image.user }}
-          </h1>
+          <div>
+            <h1>
+              These are the full-details of the image that you have selected :
+              <ul>
+                <li>Id of the image: {{ image.id }},</li>
+                <li>Type of the image: {{ image.type }},</li>
+                <li>Tags: {{ image.tags }},</li>
+                <li>User: {{ image.user }},</li>
+                <li>views: {{ image.views }},</li>
+                <li>No of likes:{{ image.likes }},</li>
+                <li>comments: {{ image.comments }},</li>
+                <li>downloads:{{ image.downloads }}.</li>
+              </ul>
+            </h1>
+          </div>
         </div>
       </v-row>
     </div>
