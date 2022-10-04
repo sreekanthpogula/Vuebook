@@ -2,14 +2,18 @@
   <div id="details">
     <div class="container">
       <v-row v-for="(image, index) in images" :key="index" class="col-md-12" cols="4"
-        ><div v-if="id == image.imageid">
+        ><div v-if="imageid == image.id">
           <v-img
             :src="image.userImageURL"
             :lazy-src="image.userImageURL"
             aspect-ratio="0"
-            class="img-fluid"
+            class=""
           ></v-img>
-          <h1>Details about the image are:{{ image.hits }}</h1>
+          <h1>
+            The Details of the image are : ID:{{ image.id }}, Type:{{
+              image.type
+            }},Tags:{{ image.tags }},User:{{ image.user }}
+          </h1>
         </div>
       </v-row>
     </div>
