@@ -1,4 +1,5 @@
-# facebook
+# vuebook
+ Vuebook is the Social-media Application designed using Vuejs Technology.It is similar to the Facebook Application in the Interface Design.We have used Vuetify for the Materialistic UI Component Design.
 
 ## Project setup
 ```

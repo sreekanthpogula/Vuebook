@@ -3,10 +3,14 @@ import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Details from '../components/Details.vue'
+import VueRouter from 'vue-router'
 
 Vue.use(Router)
+const router = new VueRouter({
+  mode: 'history'});
 export default new Router({
-  routes: [
+  router,
+    routes: [
     {
       path: '/',
       name: 'login',
@@ -29,7 +33,7 @@ export default new Router({
           component: () => import('../components/Recentphotos.vue')
         },
         // dynamic segments start with a colon
-        { path: '/dashboard/recentphotos/Details/:id', component: Details },
+        { path: '/dashboard/recentphotos/Details/:imageId', component: Details, props: true},
         {
           path: '/dashboard/about',
           name: 'About',

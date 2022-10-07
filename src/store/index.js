@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     images(state) {
        return state.imageData?.hits
     },
-    singleimage(state) {
+    singleImage(state) {
       return state.singleimageData
     }
   },
@@ -21,7 +21,7 @@ const store = new Vuex.Store({
     setImageData(state, data) {
      state.imageData = data
     },
-    setsingleImageData(state, data) {
+    setSingleImageData(state, data) {
       state.singleimageData = data
     }
   },
@@ -33,10 +33,10 @@ const store = new Vuex.Store({
         console.log('response', response.data)
       })
     },
-    getsingleImages({ commit }) {
+    getSingleImages({ commit }) {
       axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo' + this.id)
       .then(response => {
-        commit('setsingleImageData', response.data)
+        commit('setSingleImageData', response.data)
         console.log('response', response.data)
       })
     },

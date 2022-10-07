@@ -6,17 +6,23 @@
       class="d-flex child-flex"
       cols="4"
     >
+      <!-- `/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos-->
       <router-link
-        :to="`/dashboard/recentphotos/Details/${image.id}`"
-        v-bind:id="image.id"
+        :to="`/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos`"
         ><v-img
           :src="image.userImageURL"
           :lazy-src="image.userImageURL"
           aspect-ratio="1"
           class="grey lighten-2"
         ></v-img>
-        <!-- <h3 @click="goTodetail()"></h3> -->
       </router-link>
+      <router-link
+        :to="{
+          name: 'Details',
+          params: { id: image.id },
+          query: { sort: 'asc' },
+        }"
+      ></router-link>
     </v-col>
   </v-row>
 </template>

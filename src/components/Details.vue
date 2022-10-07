@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
     this.$route.params.id;
-    this.$store.dispatch("getsingleImages");
+    this.$store.dispatch("getSingleImages");
   },
   computed: {
     images() {
@@ -47,5 +47,57 @@ export default {
     },
   },
 };
+
+// // import { mapState } from 'vuex'
+// // import axios from "axios";
+// export default {
+//   name: "DetailsComponent",
+//   data() {
+//     return {
+//       imageid: this.$route.query.imageid,
+//       imageData: {},
+//       idFilter: null,
+//     };
+//   },
+//   mounted() {
+//     // this.fetchImageDetails();
+//     if ("id" in this.$route.query) {
+//       this.idFilter = this.$route.query.id;
+//     }
+//     console.log(this.$route.query.id);
+//     this.$store.dispatch("getsingleImages");
+//   },
+//   computed: {
+//     // ...mapState({
+//     //   images: state => state.imageData,
+//     // }),
+//     images() {
+//       return this.$store.getters["images"];
+//     },
+//   },
+//   // methods: {
+//   //   updateQueryParams() {
+//   //     const query = {};
+//   //     if (this.idFilter != null) {
+//   //       query.id = this.idFilter;
+//   //     }
+//   //     if (!this.imageid.isEqual(this.$route.query, query)) {
+//   //       this.$router.push({ name: "Recentphotos", query: query });
+//   //     }
+//   //   },
+//   // },
+//   // methods: {
+//   //   fetchImageDetails() {
+//   //     axios
+//   //       .get(
+//   //         `https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo${this.imageId}`
+//   //       )
+//   //       .then((response) => {
+//   //         console.log("response", response.data);
+//   //       })
+//   //       .catch((err) => console.log(err));
+//   //   },
+//   // },
+// };
 </script>
 <style></style>
