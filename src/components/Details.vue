@@ -29,21 +29,44 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "DetailsComponent",
+  props: [""],
   data() {
     return {
       imageid: this.$route.params.id,
       imageData: {},
     };
   },
+  watch: {
+    imageid() {
+      console.log("it is printing");
+    },
+  },
+  created() {
+    this.$route.query;
+  },
   mounted() {
-    this.$route.params.id;
-    this.$store.dispatch("getSingleImages");
+    this.getDetails();
+    console.log(this.$route);
+    // this.$store.dispatch("getSingleImages");
   },
   computed: {
     images() {
       return this.$store.getters["images"];
+    },
+  },
+  methods: {
+    getDetails() {
+      axios
+        .get(
+          `https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo&id=${this.imageid}`
+        )
+        .then((response) => {
+          // this.id = response.data[this.imageid];
+          console.log(response.data);
+        });
     },
   },
 };

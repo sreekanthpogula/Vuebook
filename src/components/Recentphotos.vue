@@ -7,8 +7,7 @@
       cols="4"
     >
       <!-- `/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos-->
-      <router-link
-        :to="`/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos`"
+      <router-link :to="`/dashboard/recentphotos/Details/${image.id}`"
         ><v-img
           :src="image.userImageURL"
           :lazy-src="image.userImageURL"
@@ -16,13 +15,6 @@
           class="grey lighten-2"
         ></v-img>
       </router-link>
-      <router-link
-        :to="{
-          name: 'Details',
-          params: { id: image.id },
-          query: { sort: 'asc' },
-        }"
-      ></router-link>
     </v-col>
   </v-row>
 </template>
