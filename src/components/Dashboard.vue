@@ -17,7 +17,7 @@
               <v-list-item-title class="text-h6">
                 {{ username || "Sreekanth Pogula" }}
               </v-list-item-title>
-              <v-list-item-subtitle v-on:click="logout">log out</v-list-item-subtitle>
+              <v-btn v-on:click="logout">logout</v-btn>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -128,5 +128,32 @@ export default {
 
 .app-layout-content .content {
   overflow-y: scroll;
+}
+.v-list-item {
+  /* align-items: center; */
+  display: flex;
+  flex: 1 1 100%;
+  letter-spacing: normal;
+  min-height: 48px;
+  outline: none;
+  padding: 0 16px;
+  position: relative;
+  text-decoration: none;
+}
+.v-icon.v-icon {
+  align-items: center;
+  display: inline-flex;
+  font-feature-settings: "liga";
+  font-size: 24px;
+  justify-content: center;
+  letter-spacing: normal;
+  line-height: 2;
+  position: relative;
+  text-indent: 0;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), visibility 0s;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 </style>
