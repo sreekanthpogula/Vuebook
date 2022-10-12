@@ -20,6 +20,8 @@
 </template>
 
 <script>
+// import store from "./store/index";
+
 export default {
   name: "RecentPhotos",
   data() {
@@ -27,6 +29,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getImages");
+    // store.dispatch("getImages");
   },
   computed: {
     images() {

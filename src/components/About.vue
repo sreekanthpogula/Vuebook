@@ -2,7 +2,7 @@
   <v-main>
     <v-container>
       <h1>About Vuebook</h1>
-      <router-link :to="{ name: 'error' }">Error</router-link>
+      <!-- <router-link :to="{ name: 'error' }">Error</router-link> -->
       <v-container>
         <article>
           Vuebook is the Social-media Application designed using Vuejs Technology.It is

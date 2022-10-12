@@ -29,6 +29,7 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import axios from "axios";
 export default {
   name: "DetailsComponent",
@@ -53,6 +54,9 @@ export default {
     // this.$store.dispatch("getSingleImages");
   },
   computed: {
+    ...mapState({
+      images: (state) => state.imageData,
+    }),
     images() {
       return this.$store.getters["images"];
     },
