@@ -10,15 +10,14 @@
             <v-list-item-avatar>
               <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
             </v-list-item-avatar>
-          </v-list-item>
-
-          <v-list-item link>
-            <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                {{ username || "Sreekanth Pogula" }}
-              </v-list-item-title>
-              <v-btn v-on:click="logout">logout</v-btn>
-            </v-list-item-content>
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title class="text-h6">
+                  {{ username || "Sreekanth Pogula" }}
+                </v-list-item-title>
+                <v-btn v-on:click="logout">logout</v-btn>
+              </v-list-item-content>
+            </v-list-item>
           </v-list-item>
         </v-list>
 
@@ -156,4 +155,14 @@ export default {
   -moz-user-select: none;
   user-select: none;
 }
+/* .v-application--wrap {
+  flex: 1 1 auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+} */
 </style>

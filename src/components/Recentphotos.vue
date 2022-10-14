@@ -27,7 +27,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["a/"]),
+    ...mapGetters(["a/images"]),
   },
 
   methods: {
@@ -45,11 +45,9 @@ export default {
   //   // this.$store.dispatch("getImages");
   //   store.dispatch("getImages");
   // },
-  // computed: {
-  //   images() {
-  //     // return this.$store.getters["images"];
-  //     return store.gettets["images"];
-  //   },
+  // images() {
+  //   return this.$store.getters["images"];
+  //   // return store.gettets["images"];
   // },
 };
 </script>
