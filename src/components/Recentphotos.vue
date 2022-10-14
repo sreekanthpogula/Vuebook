@@ -20,22 +20,37 @@
 </template>
 
 <script>
-// import store from "./store/index";
-
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "RecentPhotos",
   data() {
     return {};
   },
-  mounted() {
-    this.$store.dispatch("getImages");
-    // store.dispatch("getImages");
-  },
   computed: {
-    images() {
-      return this.$store.getters["images"];
-    },
+    ...mapGetters(["a/"]),
   },
+
+  methods: {
+    // ...mapActions(["a/getImages"]),
+    ...mapActions({
+      actionName: "a/getImages",
+    }),
+  },
+
+  mounted() {
+    this.actionName();
+  },
+
+  // mounted() {
+  //   // this.$store.dispatch("getImages");
+  //   store.dispatch("getImages");
+  // },
+  // computed: {
+  //   images() {
+  //     // return this.$store.getters["images"];
+  //     return store.gettets["images"];
+  //   },
+  // },
 };
 </script>
 <style></style>
