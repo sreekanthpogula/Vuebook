@@ -20,14 +20,16 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "RecentPhotos",
   data() {
     return {};
   },
   computed: {
-    ...mapGetters(["a/images"]),
+    ...mapState({
+      images: (state) => state.a.imageData,
+    }),
   },
 
   methods: {

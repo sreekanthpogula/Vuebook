@@ -80,10 +80,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "RecentChats", icon: "mdi-message-text", xyz: "Recentchats" },
+        { title: "RecentChats", icon: "mdi-whatsapp", xyz: "Recentchats" },
         { title: "RecentPics", icon: "mdi-image", xyz: "Recentphotos" },
         { title: "Emails", icon: "mdi-email", xyz: "RecentEmails" },
-        { title: "About", icon: "mdi-help-box", xyz: "About" },
+        { title: "shop", icon: "mdi-store", xyz: "e-store" },
+        { title: "About", icon: "mdi-information", xyz: "About" },
       ],
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
       username: this.$route.params.username,

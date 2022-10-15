@@ -1,15 +1,19 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-import moduleA from '../store/moduleA' 
+import moduleA from '../store/moduleA'
+import moduleB from '../store/moduleB' 
+
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
     a: moduleA,
+    b: moduleB,
   }
 })
 store.state.a
+store.state.b
 
 export default store
 

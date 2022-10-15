@@ -26,16 +26,22 @@ const moduleA = {
         getImages({ commit }) {
           axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo')
           .then(response => {
-            commit('setImageData', response.data)
+            commit('setImageData', response.data.hits)
             console.log('response', response.data)
           })
+          .catch(err=> {
+            console.log(err)
+        })
         },
-        getSingleImages({ commit }) {
-          axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo' + this.id)
+        getSingleImages({ commit }, id) {
+          axios.get('https://pixabay.com/api/?key=30231407-63b59e473c794efcc287ff34f&q=yellow+flowers&image_type=photo' + id)
           .then(response => {
             commit('setSingleImageData', response.data)
             console.log('response', response.data)
           })
+          .catch(err=> {
+            console.log(err)
+        })
         },
       },
     }
