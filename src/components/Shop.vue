@@ -6,13 +6,7 @@
     <img class="hero-image" :src="require(`@/assets/img/${image}`)" />
     <div class="shop-section">
       <div v-for="p in product" :key="p.id" class="outer-card">
-        <router-link
-          :to="{
-            name: 'ProductDetails',
-            params: { gender: p.gender, id: p.id },
-          }"
-          class="card"
-        >
+        <router-link :to="`/src/views/HomePage/${p.id}`">
           <img class="card-image" :src="p.src" />
           <div class="card-bottom">
             <div class="card-text">
@@ -37,7 +31,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .shop-page {
   position: absolute;
   top: 0;

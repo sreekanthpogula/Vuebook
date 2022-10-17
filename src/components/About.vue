@@ -11,6 +11,20 @@
           component are from the API.we can also know more about the image parameters on
           clicking the image.
         </article>
+        <div class="frame">
+          <slot>This is a default slot content</slot>
+        </div>
+        <div>
+          <header>
+            <h2><slot name="header">Title</slot></h2>
+          </header>
+          <slot>This is the default content if nothing gets specified to go here</slot>
+        </div>
+        <div>
+          <slot v-bind:user="user">
+            {{ user }}
+          </slot>
+        </div>
       </v-container>
     </v-container>
   </v-main>

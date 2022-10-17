@@ -83,7 +83,7 @@ export default {
       if (this.getCart.length > 0) {
         this.order = true;
         this.$store.dispatch("orderSuccess");
-      } else if ((this.getCart.length = 0)) {
+      } else if (this.getCart.length == 0) {
         this.order = false;
       }
     },

@@ -23,7 +23,7 @@
 
         <v-divider></v-divider>
 
-        <v-list dense nav>
+        <!-- <v-list dense nav>
           <v-list-item v-for="item in items" :key="item.title" link>
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
@@ -45,11 +45,44 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+        </v-list> -->
+        <v-list dense nav>
+          <v-list-item-group v-model="selectedItem" color="primary">
+            <v-list-item v-for="(item, i) in items" :key="i.title" link>
+              <!-- <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon> -->
+              <v-list-item-content>
+                <v-list-item-title>
+                  <v-btn
+                    class="mx-1 white--text"
+                    elevation="1"
+                    rounded
+                    color="#1976d2"
+                    :to="{
+                      name: item.xyz,
+                    }"
+                  >
+                    <v-list-item-icon>
+                      <v-icon v-text="item.icon"></v-icon>
+                    </v-list-item-icon>
+                    {{ item.title }}
+                  </v-btn>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
         </v-list>
         <v-card> &#9824; Vuebook </v-card>
       </v-navigation-drawer>
       <v-container fluid class="content">
         <router-view> </router-view>
+        <v-btn class="btn btn-primary btn-lg">
+          <slot> Click me </slot>
+        </v-btn>
+        <v-btn class="mx-1 white--text" elevation="1" rounded color="#1976d2">
+          <img src="" /> &#128074;SMASH THIS BUTTON TO GET $500!!!
+        </v-btn>
       </v-container>
     </div>
     <v-footer class="footer" dark padless>
@@ -83,7 +116,7 @@ export default {
         { title: "RecentChats", icon: "mdi-whatsapp", xyz: "Recentchats" },
         { title: "RecentPics", icon: "mdi-image", xyz: "Recentphotos" },
         { title: "Emails", icon: "mdi-email", xyz: "RecentEmails" },
-        { title: "shop", icon: "mdi-store", xyz: "e-store" },
+        { title: "Shop", icon: "mdi-store", xyz: "shop" },
         { title: "About", icon: "mdi-information", xyz: "About" },
       ],
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],

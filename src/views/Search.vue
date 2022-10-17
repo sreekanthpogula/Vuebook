@@ -39,7 +39,6 @@
 <script>
 export default {
   name: "SearchComponent",
-}
   computed: {
     filteredProducts() {
       try {
@@ -47,7 +46,9 @@ export default {
         return a;
       } catch (e) {
         console.log(e);
+        // this.load = true; //or // false
       }
+      return null;
     },
     searchWord: {
       get() {
