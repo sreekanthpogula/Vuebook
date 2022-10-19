@@ -78,7 +78,7 @@ const routes = [
       {
         path: '/dashboard/recentemails',
         name: 'RecentEmails',
-        component: () => import('../components/RecentEmails.vue')
+        component: () => import('../components/Apidata.vue')
       },
       // {
       //   path: "/dashboard/shop",
