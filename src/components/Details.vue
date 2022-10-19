@@ -22,6 +22,7 @@
                 <li>downloads:{{ image.downloads }}.</li>
               </ul>
             </h1>
+            <p>Message to grand child: {{ message }}</p>
           </div>
         </div>
       </v-row>
@@ -33,6 +34,7 @@ import { mapGetters, mapState, mapActions } from "vuex";
 import axios from "axios";
 export default {
   name: "DetailsComponent",
+  inject: ["message"],
   props: [""],
   data() {
     return {

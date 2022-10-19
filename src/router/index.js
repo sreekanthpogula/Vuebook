@@ -7,13 +7,13 @@ import VueRouter from 'vue-router'
 import consoleRouterGuard from './guards/myFirstguard'
 // import { createRouter, createWebHistory } from "vue-router";
 // import Shop from '@/components/Shop.vue';
-import HomePage from "../views/HomePage.vue";
-import About from "../views/About.vue";
-import Men from "../views/Men.vue";
-import Women from "../views/Women.vue";
-import Search from "../views/Search.vue";
-import Checkout from "../views/Checkout.vue";
-import ProductDetails from "../views/ProductDetails.vue";
+// import HomePage from "../views/HomePage.vue";
+// import About from "../views/About.vue";
+// import Men from "../views/Men.vue";
+// import Women from "../views/Women.vue";
+// import Search from "../views/Search.vue";
+// import Checkout from "../views/Checkout.vue";
+// import ProductDetails from "../views/ProductDetails.vue";
 
 // import beforeEach from 'vue-router'
 // import  beforeResolve from 'vue-router'
@@ -27,6 +27,11 @@ const routes = [
     path: '/',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: () => import('../components/ForgotPassword.vue')
   },
   {
     path: '/dashboard',
@@ -75,70 +80,64 @@ const routes = [
         name: 'RecentEmails',
         component: () => import('../components/RecentEmails.vue')
       },
-      {
-        path: "/dashboard/shop",
-        name: "Shop",
-        component: () => import('../components/Shop.vue')
-      },
-      {
-      path: "/home",
-      name: "home",
-      component: HomePage,
-    },
-    {
-      path: "/about",
-      name: "About",
-      component: About,
-    },
-    {
-      path: "/men",
-      name: "Men",
-      component: Men,
-      props: true,
-    },
-    {
-      path: "/women",
-      name: "Women",
-      component: Women,
-      props: true,
-    },
+      // {
+      //   path: "/dashboard/shop",
+      //   name: "Shop",
+      //   component: () => import('../components/Shop.vue')
+      // },
+    //   {
+    //   path: "/home",
+    //   name: "home",
+    //   component: HomePage,
+    // },
     // {
-    //   path: "/kids",
-    //   name: "kids",
-    //   component: kids,
+    //   path: "/about",
+    //   name: "About",
+    //   component: About,
+    // },
+    // {
+    //   path: "/men",
+    //   name: "Men",
+    //   component: Men,
     //   props: true,
     // },
-    {
-      path: "/search",
-      name: "Search",
-      component: Search,
-      props: true,
-    },
-    {
-      path: "/checkout",
-      name: "Checkout",
-      component: Checkout,
-      props: true,
-    },
-    {
-      path: "/Shop/:gender/:id",
-      name: "ProductDetails",
-      component: ProductDetails,
-      props: true,
-    },
-    {
-      path: "/:catchAll(.*)",
-      name: "404",
-      component: HomePage,
-    },
+    // {
+    //   path: "/women",
+    //   name: "Women",
+    //   component: Women,
+    //   props: true,
+    // },
+    // // {
+    // //   path: "/kids",
+    // //   name: "kids",
+    // //   component: kids,
+    // //   props: true,
+    // // },
+    // {
+    //   path: "/search",
+    //   name: "Search",
+    //   component: Search,
+    //   props: true,
+    // },
+    // {
+    //   path: "/checkout",
+    //   name: "Checkout",
+    //   component: Checkout,
+    //   props: true,
+    // },
+    // {
+    //   path: "/Shop/:gender/:id",
+    //   name: "ProductDetails",
+    //   component: ProductDetails,
+    //   props: true,
+    // },
+    // {
+    //   path: "/:catchAll(.*)",
+    //   name: "404",
+    //   component: HomePage,
+    // },
     ]
   },
-  {
-    path: '/forgot-password',
-    name: 'ForgotPassword',
-    component: () => import('../components/ForgotPassword.vue')
-  },
-
 ];
 
 // 

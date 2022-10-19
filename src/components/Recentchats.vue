@@ -205,7 +205,7 @@
                 <img src="https://cdn.vuetifyjs.com/images/lists/3.jpg" />
               </v-avatar>
             </v-badge>
-            <v-card-title class="layout justify-center">Likhitha Reddy</v-card-title>
+            <v-card-title class="layout justify-center">STELLA EDWARDS</v-card-title>
             <v-card-subtitle class="layout justify-center"
               >CEO & Founder at Highly inc</v-card-subtitle
             >

@@ -1,7 +1,7 @@
 <template>
   <div class="app-layout">
     <v-toolbar class="header" color="primary" dark fixed app>
-      <v-toolbar-title>Vuebook Dashboard</v-toolbar-title>
+      <v-toolbar-title>Vuebook Dashboard </v-toolbar-title>
     </v-toolbar>
     <div class="app-layout-content">
       <v-navigation-drawer class="side-bar" permanent>
@@ -47,7 +47,7 @@
           </v-list-item>
         </v-list> -->
         <v-list dense nav>
-          <v-list-item-group v-model="selectedItem" color="primary">
+          <v-list-item-group color="primary">
             <v-list-item v-for="(item, i) in items" :key="i.title" link>
               <!-- <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
@@ -77,9 +77,9 @@
       </v-navigation-drawer>
       <v-container fluid class="content">
         <router-view> </router-view>
-        <v-btn class="btn btn-primary btn-lg">
+        <!-- <v-btn class="btn btn-primary btn-lg">
           <slot> Click me </slot>
-        </v-btn>
+        </v-btn> -->
         <v-btn class="mx-1 white--text" elevation="1" rounded color="#1976d2">
           <img src="" /> &#128074;SMASH THIS BUTTON TO GET $500!!!
         </v-btn>
@@ -115,8 +115,8 @@ export default {
       items: [
         { title: "RecentChats", icon: "mdi-whatsapp", xyz: "Recentchats" },
         { title: "RecentPics", icon: "mdi-image", xyz: "Recentphotos" },
-        { title: "Emails", icon: "mdi-email", xyz: "RecentEmails" },
-        { title: "Shop", icon: "mdi-store", xyz: "shop" },
+        { title: "APIDATA", icon: "mdi-database", xyz: "RecentEmails" },
+        // { title: "Shop", icon: "mdi-store", xyz: "shop" },
         { title: "About", icon: "mdi-information", xyz: "About" },
       ],
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
@@ -131,6 +131,17 @@ export default {
 };
 </script>
 <style>
+#nav a {
+  font-weight: bold;
+  color: #ffffff;
+}
+a:hover {
+  cursor: pointer;
+}
+
+#nav a.router-link-exact-active {
+  color: #010a06ef;
+}
 .v-list--nav {
   padding-left: 4px;
   padding-right: 4px;
@@ -189,14 +200,12 @@ export default {
   -moz-user-select: none;
   user-select: none;
 }
-/* .v-application--wrap {
-  flex: 1 1 auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+.v-toolbar__content,
+.v-toolbar__extension {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  max-width: 100%;
   position: relative;
-} */
+  z-index: 0;
+  justify-content: space-between;
+}
 </style>

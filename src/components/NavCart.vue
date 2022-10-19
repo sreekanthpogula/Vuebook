@@ -25,7 +25,7 @@ import { mapGetters } from "vuex";
 import CartItem from "@/components/CartItem.vue";
 export default {
   components: { CartItem },
-  name: "CartComponent"
+  name: "CartComponent",
   emits: ["toggleCart"],
   computed: {
     ...mapGetters(["cartItemCount", "cartTotalPrice"]),

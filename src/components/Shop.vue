@@ -1,6 +1,6 @@
 <template>
   <div class="shop-page">
-    <div class="gradient-section">
+    <!-- <div class="gradient-section">
       <h1 class="shop-title">{{ category }}</h1>
     </div>
     <img class="hero-image" :src="require(`@/assets/img/${image}`)" />
@@ -20,7 +20,7 @@
           <p class="item-price">${{ p.price }}</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -7,7 +7,8 @@
       cols="4"
     >
       <!-- `/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos-->
-      <router-link :to="`/dashboard/recentphotos/Details/${image.id}`"
+      <router-link
+        :to="`/dashboard/recentphotos/Details?id=${image.id}&from=recentPhotos`"
         ><v-img
           :src="image.userImageURL"
           :lazy-src="image.userImageURL"

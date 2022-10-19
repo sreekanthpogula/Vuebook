@@ -31,7 +31,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Navbar",
+  name: "NavbarComponent",
   emits: ["toggle"],
   data() {
     return {
