@@ -1,5 +1,5 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
-import Login from '@/components/Login.vue'
+import { createLocalVue, mount } from '@vue/test-utils'
+import Login from '@/components/Register.vue'
 import Vuetify from "vuetify"
 
 describe('Login.vue', () => {

@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { shallowMount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
 
 // Components
 import { createLocalVue, mount } from '@vue/test-utils'
 // import Dashboard from '@/components/Dashboard.vue'
-import Login from '@/components/Login.vue'
+import Login from '@/components/Register.vue'
 describe('Login.vue', () => {
   const localVue = createLocalVue()
   let vuetify
@@ -90,3 +91,5 @@ describe('Login', () => {
     expect(wrapper.find('.error').exists()).toBeFalsy()
   })
 })
+})
+

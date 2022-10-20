@@ -1,17 +1,32 @@
-<!-- eslint-disable vue/no-parsing-error -->
 <template>
   <v-app>
     <v-main>
+      <!-- <v-card dark flat>
+        <v-toolbar flat height="72">
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            hint="This toggles the global state of the Vuebook theme"
+            inset
+            label="Try Vuebook Dark Theme"
+            persistent-hint
+          ></v-switch>
+        </v-toolbar>
+      </v-card> -->
       <v-container>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
               <v-toolbar dark color="primary">
-                <v-toolbar-title>Vuebook Login </v-toolbar-title>
+                <v-toolbar-title>Vuebook Signup </v-toolbar-title>
               </v-toolbar>
               <v-card-text>
                 <form ref="form" @submit.prevent="">
+                  <v-text-field label="Firstname" prepend-icon="mdi-account-circle" />
+                  <v-text-field label="Lastname" prepend-icon="mdi-account-circle" />
                   <v-text-field label="Email" prepend-icon="mdi-email" />
+                  <div class="message">
+                    {{ message }}
+                  </div>
                   <v-text-field
                     v-model="password"
                     name="password"
@@ -23,16 +38,29 @@
                     @click:append="showPassword = !showPassword"
                   >
                   </v-text-field>
-                  <!-- <p class="forgot-password text-right mt-2 mb-4">
+                  <v-text-field
+                    v-if="isRegister"
+                    v-model="confirmPassword"
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    placeholder="confirm password"
+                    prepend-icon="mdi-lock"
+                    :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="show = !show"
+                  >
+                    ></v-text-field
+                  >
+                  <p class="forgot-password text-right mt-2 mb-4">
                     <router-link to="/forgot-password">Forgot password ?</router-link>
-                  </p> -->
+                  </p>
                   <!-- <div class="red--text">{{ errorMessage }}</div> -->
-                  <v-btn type="submit" class="mt-4" color="primary" value="log in"
-                    >Login</v-btn
+                  <v-btn type="submit" class="mt-4" color="primary" value="register"
+                    >Register</v-btn
                   >
                   <div
                     class="grey--text mt-4"
-                    v-on:click="isLoggedIn = !isLoggedIn"
+                    v-on:click="isRegister = !isRegister"
                   ></div>
                 </form>
               </v-card-text>
@@ -64,6 +92,7 @@
     </v-main>
   </v-app>
 </template>
+
 <script>
 export default {
   name: "LoginComponent",
@@ -115,4 +144,15 @@ export default {
 };
 </script>
 <style>
+#nav a {
+  font-weight: bold;
+  color: #ffffff;
+}
+a:hover {
+  cursor: pointer;
+}
+
+#nav a.router-link-exact-active {
+  color: #ffffff;
+}
 </style>

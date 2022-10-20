@@ -3,8 +3,11 @@ import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Details from '../components/Details.vue'
-import VueRouter from 'vue-router'
 import consoleRouterGuard from './guards/myFirstguard'
+// import {createRouter, createWebHistory} from 'vue-router'
+import Home from '@/components/Home.vue';
+import Register from '../components/Register.vue';
+import VueRouter from 'vue-router'
 // import { createRouter, createWebHistory } from "vue-router";
 // import Shop from '@/components/Shop.vue';
 // import HomePage from "../views/HomePage.vue";
@@ -23,11 +26,9 @@ import consoleRouterGuard from './guards/myFirstguard'
 
 Vue.use(Router)
 const routes = [
-  {
-    path: '/',
-    name: 'login',
-    component: Login
-  },
+  {path: '/', component: Home},
+    {path: '/login', component: Login},
+    {path: '/register', component: Register},
   {
     path: '/forgot-password',
     name: 'ForgotPassword',

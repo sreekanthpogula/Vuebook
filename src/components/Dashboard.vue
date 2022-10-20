@@ -22,30 +22,6 @@
         </v-list>
 
         <v-divider></v-divider>
-
-        <!-- <v-list dense nav>
-          <v-list-item v-for="item in items" :key="item.title" link>
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>
-                <v-btn
-                  class="mx-1 white--text"
-                  elevation="1"
-                  rounded
-                  color="#1976d2"
-                  :to="{
-                    name: item.xyz,
-                  }"
-                >
-                  {{ item.title }}
-                </v-btn>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list> -->
         <v-list dense nav>
           <v-list-item-group color="primary">
             <v-list-item v-for="(item, i) in items" :key="i.title" link>
