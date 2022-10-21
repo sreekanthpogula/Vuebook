@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>WELCOME TO THE HOMEPAGE</h1>
+    <h1>WELCOME TO {{ message }}</h1>
 
     <div class="container mt-5 text-center">
       <h3>{{ message }}</h3>
@@ -9,7 +9,7 @@
           class="v-btn white--text mx-1 px-6"
           elevation="2"
           rounded
-          :style="{ 'background-color': hover ? 'rgb(25 118 210)' : '' }"
+          :style="{ 'background-color': hover ? 'black' : 'rgb(25 118 210)' }"
           @click="logout"
           >Logout</v-btn
         >

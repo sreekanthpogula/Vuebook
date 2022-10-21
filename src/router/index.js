@@ -4,7 +4,6 @@ import Login from '../components/Login.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Details from '../components/Details.vue'
 import consoleRouterGuard from './guards/myFirstguard'
-// import {createRouter, createWebHistory} from 'vue-router'
 import Home from '@/components/Home.vue';
 import Register from '../components/Register.vue';
 import VueRouter from 'vue-router'

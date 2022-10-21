@@ -23,10 +23,10 @@
                     @click:append="showPassword = !showPassword"
                   >
                   </v-text-field>
-                  <!-- <p class="forgot-password text-right mt-2 mb-4">
+                  <p class="forgot-password text-right mt-2 mb-4">
                     <router-link to="/forgot-password">Forgot password ?</router-link>
-                  </p> -->
-                  <!-- <div class="red--text">{{ errorMessage }}</div> -->
+                  </p>
+                  <div class="red--text">{{ errorMessage }}</div>
                   <v-btn type="submit" class="mt-4" color="primary" value="log in"
                     >Login</v-btn
                   >
@@ -65,52 +65,24 @@
   </v-app>
 </template>
 <script>
+import { useRouter } from "vue-router";
+import axios from "axios";
 export default {
   name: "LoginComponent",
-  data() {
-    return {
-      message: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      isRegister: true,
-      showPassword: false,
-      show: false,
-      errorMessage: "",
-      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-      stateObj: {
-        register: {
-          name: "Register",
-          message: "Aleady have an Acoount? login.",
-        },
-        login: {
-          name: "Login",
-          message: "Register",
-        },
-      },
+  setup() {
+    const router = useRouter();
+    const submit = async (e) => {
+      const form = new FormData(e.target);
+      const inputs = Object.fromEntries(form.entries());
+      const { data } = await axios.post("login", inputs, {
+        withCredentials: true,
+      });
+      axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+      await router.push("/");
     };
-  },
-  methods: {
-    login() {
-      const { username } = this;
-      this.$router.replace({ name: "dashboard", params: { username: username } });
-    },
-    register() {
-      if (this.password == this.confirmPassword) {
-        this.isRegister = false;
-        this.errorMessage = "";
-        this.$refs.form.reset();
-      } else {
-        this.errorMessage = "password did not match";
-      }
-    },
-  },
-  computed: {
-    toggleMessage: function () {
-      return this.isRegister
-        ? this.stateObj.register.message
-        : this.stateObj.login.message;
-    },
+    return {
+      submit,
+    };
   },
 };
 </script>

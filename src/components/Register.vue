@@ -1,17 +1,6 @@
 <template>
   <v-app>
     <v-main>
-      <!-- <v-card dark flat>
-        <v-toolbar flat height="72">
-          <v-switch
-            v-model="$vuetify.theme.dark"
-            hint="This toggles the global state of the Vuebook theme"
-            inset
-            label="Try Vuebook Dark Theme"
-            persistent-hint
-          ></v-switch>
-        </v-toolbar>
-      </v-card> -->
       <v-container>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
@@ -50,18 +39,14 @@
                     @click:append="show = !show"
                   >
                     ></v-text-field
-                  ><v-btn
-                    class="mt-4"
-                    :loading="loading"
-                    :disabled="loading"
-                    color="primary"
-                    @click="loader = 'loading'"
-                  >
-                    Accept Terms
-                  </v-btn>
-                  <p class="forgot-password text-right mt-2 mb-4">
+                  ><v-checkbox
+                    label="Accept Terms"
+                    v-model="value"
+                    value="value"
+                  ></v-checkbox>
+                  <!-- <p class="forgot-password text-right mt-2 mb-4">
                     <router-link to="/forgot-password">Forgot password ?</router-link>
-                  </p>
+                  </p> -->
                   <!-- <div class="red--text">{{ errorMessage }}</div> -->
                   <v-btn type="submit" class="mt-4" color="primary" value="register"
                     >Register</v-btn
@@ -102,52 +87,31 @@
 </template>
 
 <script>
+import axios from "axios";
+import { useRouter } from "vue-router";
 export default {
-  name: "LoginComponent",
-  data() {
-    return {
-      message: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      isRegister: true,
-      showPassword: false,
-      show: false,
-      errorMessage: "",
-      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-      stateObj: {
-        register: {
-          name: "Register",
-          message: "Aleady have an Acoount? login.",
-        },
-        login: {
-          name: "Login",
-          message: "Register",
-        },
-      },
+  name: "RegisterComponent",
+  message: "",
+  Firstname: "",
+  Lastname: "",
+  password: "",
+  confirmPassword: "",
+  isRegister: true,
+  showPassword: false,
+  show: false,
+  errorMessage: "",
+  icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+  setup() {
+    const router = useRouter();
+    const submit = async (e) => {
+      const form = new FormData(e.target);
+      const inputs = Object.fromEntries(form.entries());
+      await axios.post("register", inputs);
+      await router.push("/login");
     };
-  },
-  methods: {
-    login() {
-      const { username } = this;
-      this.$router.replace({ name: "dashboard", params: { username: username } });
-    },
-    register() {
-      if (this.password == this.confirmPassword) {
-        this.isRegister = false;
-        this.errorMessage = "";
-        this.$refs.form.reset();
-      } else {
-        this.errorMessage = "password did not match";
-      }
-    },
-  },
-  computed: {
-    toggleMessage: function () {
-      return this.isRegister
-        ? this.stateObj.register.message
-        : this.stateObj.login.message;
-    },
+    return {
+      submit,
+    };
   },
 };
 </script>
