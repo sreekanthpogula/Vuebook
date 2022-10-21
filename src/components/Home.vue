@@ -1,17 +1,62 @@
 <template>
   <v-container>
+    <h1>WELCOME TO THE HOMEPAGE</h1>
+
     <div class="container mt-5 text-center">
       <h3>{{ message }}</h3>
-
-      <a @click="logout">Logout</a>
+      <v-hover v-slot="{ hover }"
+        ><v-btn
+          class="v-btn white--text mx-1 px-6"
+          elevation="2"
+          rounded
+          :style="{ 'background-color': hover ? 'rgb(25 118 210)' : '' }"
+          @click="logout"
+          >Logout</v-btn
+        >
+      </v-hover>
     </div></v-container
   >
 </template>
 
 <script>
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
+
 export default {
   name: "HomeComponent",
+  setup() {
+    const message = ref("");
+    const router = useRouter();
+
+    onMounted(async () => {
+      try {
+        const { data } = await axios.get("user");
+
+        message.value = `Hi ${data.name}`;
+      } catch (e) {
+        await router.push("/login");
+      }
+    });
+
+    const logout = async () => {
+      await axios.post("logout", {}, { withCredentials: true });
+
+      axios.defaults.headers.common["Authorization"] = "";
+
+      await router.push("/login");
+    };
+
+    return {
+      message,
+      logout,
+    };
+  },
 };
 </script>
 
-<style></style>
+<style>
+h1 {
+  text-align: center;
+}
+</style>

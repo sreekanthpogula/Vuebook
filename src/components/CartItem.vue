@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in cart" :key="item.product.id" class="outer-card">
+  <!-- <div v-for="item in cart" :key="item.product.id" class="outer-card">
     <router-link
       :to="{
         name: 'ProductDetails',
@@ -23,7 +23,8 @@
         ></i>
       </div>
     </router-link>
-  </div>
+  </div> -->
+  <div></div>
 </template>
 
 <script>

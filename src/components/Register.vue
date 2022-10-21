@@ -50,7 +50,15 @@
                     @click:append="show = !show"
                   >
                     ></v-text-field
+                  ><v-btn
+                    class="mt-4"
+                    :loading="loading"
+                    :disabled="loading"
+                    color="primary"
+                    @click="loader = 'loading'"
                   >
+                    Accept Terms
+                  </v-btn>
                   <p class="forgot-password text-right mt-2 mb-4">
                     <router-link to="/forgot-password">Forgot password ?</router-link>
                   </p>
