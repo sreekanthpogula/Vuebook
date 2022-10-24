@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
   <v-app>
     <v-main>
@@ -39,11 +40,29 @@
                     @click:append="show = !show"
                   >
                     ></v-text-field
-                  ><v-checkbox
+                  ><!--<v-btn>
+                    <v-icon color="grey darken-4">mdi-facebook</v-icon>
+                  </v-btn>
+                  <v-btn outline fab small color="blue-grey lighten-4">
+                    <v-icon color="grey darken-4">mdi-google-plus</v-icon>
+                  </v-btn>
+                  <v-btn outline fab small color="blue-grey lighten-4">
+                    <v-icon color="grey darken-4">mdi-linkedin</v-icon> </v-btn
+                  >--><v-checkbox
                     label="Accept Terms"
                     v-model="value"
                     value="value"
                   ></v-checkbox>
+                  <v-flex>
+                    <v-layout align-center justify-space-between>
+                      <p class="caption my-3">
+                        <a href="#">Privacy Policy</a>
+                        |
+                        <a href="#">Terms of Service</a>
+                      </p>
+                      <p class="caption my-3">Powered by <a href="#">Vuejs</a></p>
+                    </v-layout>
+                  </v-flex>
                   <!-- <p class="forgot-password text-right mt-2 mb-4">
                     <router-link to="/forgot-password">Forgot password ?</router-link>
                   </p> -->

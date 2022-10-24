@@ -34,6 +34,16 @@
                     class="grey--text mt-4"
                     v-on:click="isLoggedIn = !isLoggedIn"
                   ></div>
+                  <v-flex>
+                    <v-layout align-center justify-space-between>
+                      <p class="caption my-3">
+                        <a href="#">Privacy Policy</a>
+                        |
+                        <a href="#">Terms of Service</a>
+                      </p>
+                      <p class="caption my-3">Powered by <a href="#">Vuejs</a></p>
+                    </v-layout>
+                  </v-flex>
                 </form>
               </v-card-text>
             </v-card>
@@ -48,6 +58,9 @@ import { useRouter } from "vue-router";
 import axios from "axios";
 export default {
   name: "LoginComponent",
+  showPassword: false,
+  errorMessage: "",
+  password: false,
   setup() {
     const router = useRouter();
     const submit = async (e) => {

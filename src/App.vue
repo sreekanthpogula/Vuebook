@@ -2,7 +2,7 @@
   <v-app>
     <v-header>
       <v-toolbar class="header" color="primary" dark fixed app>
-        <v-toolbar-title>Vuebook Dashboard </v-toolbar-title>
+        <v-toolbar-title>Vuebook</v-toolbar-title>
         <div id="nav">
           <router-link to="/">Home</router-link> |
           <router-link to="/register">Register</router-link> |
@@ -17,12 +17,49 @@
           <strong class="subheading">Get connected with us on social networks!</strong>
 
           <v-spacer></v-spacer>
+          <v-btn
+            href="https://www.facebook.com/groups/vuejsdevelopers/"
+            target="_blank"
+            icon
+          >
+            <span class="group pa-2">
+              <v-icon medium>mdi-facebook</v-icon>
+            </span>
+          </v-btn>
+          <v-btn href="https://twitter.com/vuejs" target="_blank" icon>
+            <span class="group pa-2">
+              <v-icon medium>mdi-twitter</v-icon>
+            </span>
+          </v-btn>
+          <v-btn href="https://github.com/vuejs/vue" target="_blank" icon>
+            <span class="group pa-2">
+              <v-icon medium>mdi-github</v-icon>
+            </span>
+          </v-btn>
+          <v-btn
+            href="https://www.instagram.com/vuejsdevelopers/?hl=en"
+            target="_blank"
+            icon
+          >
+            <span class="group pa-2">
+              <v-icon medium>mdi-instagram</v-icon>
+            </span>
+          </v-btn>
+          <v-btn
+            href="https://au.linkedin.com/company/vuejsdevelopers"
+            target="_blank"
+            icon
+          >
+            <span class="group pa-2">
+              <v-icon medium>mdi-linkedin</v-icon>
+            </span>
+          </v-btn>
 
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
+          <!-- <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
             <v-icon size="24px">
               {{ icon }}
             </v-icon>
-          </v-btn>
+          </v-btn> -->
         </v-card-title>
 
         <v-card-text class="py-2 white--text text-center">
