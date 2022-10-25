@@ -38,7 +38,7 @@ export default {
     const logout = async () => {
       await axios.post("logout", {}, { withCredentials: true });
       axios.defaults.headers.common["Authorization"] = "";
-      await router.push("/dashboard");
+      await router.push("/login");
     };
     return {
       message,
