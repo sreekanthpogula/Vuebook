@@ -70,7 +70,7 @@ export default {
         withCredentials: true,
       });
       axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-      await router.push("/");
+      await router.push("/dashboard");
     };
     return {
       submit,

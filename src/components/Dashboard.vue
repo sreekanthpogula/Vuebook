@@ -1,8 +1,8 @@
 <template>
   <div class="app-layout">
-    <v-toolbar class="header" color="primary" dark fixed app>
+    <!-- <v-toolbar class="header" color="primary" dark fixed app>
       <v-toolbar-title>Vuebook Dashboard </v-toolbar-title>
-    </v-toolbar>
+    </v-toolbar> -->
     <div class="app-layout-content">
       <v-navigation-drawer class="side-bar" permanent>
         <v-list>
@@ -15,7 +15,7 @@
                 <v-list-item-title class="text-h6">
                   {{ username || "Sreekanth Pogula" }}
                 </v-list-item-title>
-                <v-btn v-on:click="logout">logout</v-btn>
+                <v-btn v-on:click="logout" to="/">logout</v-btn>
               </v-list-item-content>
             </v-list-item>
           </v-list-item>
@@ -61,25 +61,6 @@
         </v-btn>
       </v-container>
     </div>
-    <v-footer class="footer" dark padless>
-      <v-card class="flex" flat tile>
-        <v-card-title class="blue">
-          <strong class="subheading">Get connected with us on social networks!</strong>
-
-          <v-spacer></v-spacer>
-
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
-            <v-icon size="48px">
-              {{ icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-title>
-
-        <v-card-text class="py-2 white--text text-center">
-          {{ new Date().getFullYear() }} — <strong>Vuebook</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
   </div>
 </template>
 

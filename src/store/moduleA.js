@@ -12,7 +12,7 @@ const moduleA = {
       },
       singleImage(state) {
         return state.singleimageData
-      }
+      },
     },
     mutations: {
       setImageData(state, data) {
@@ -20,7 +20,7 @@ const moduleA = {
       },
       setSingleImageData(state, data) {
         state.singleimageData = data
-      }
+      },
     },
     actions: {
         getImages({ commit }) {

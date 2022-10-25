@@ -22,31 +22,24 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
-
 export default {
   name: "HomeComponent",
   setup() {
     const message = ref("");
     const router = useRouter();
-
     onMounted(async () => {
       try {
         const { data } = await axios.get("user");
-
         message.value = `Hi ${data.name}`;
       } catch (e) {
         await router.push("/login");
       }
     });
-
     const logout = async () => {
       await axios.post("logout", {}, { withCredentials: true });
-
       axios.defaults.headers.common["Authorization"] = "";
-
-      await router.push("/login");
+      await router.push("/dashboard");
     };
-
     return {
       message,
       logout,

@@ -13,7 +13,7 @@
     <router-view />
     <v-footer dark padless>
       <v-card class="flex" flat tile>
-        <v-card-title class="teal">
+        <v-card-title class="primary">
           <strong class="subheading">Get connected with us on social networks!</strong>
 
           <v-spacer></v-spacer>
@@ -61,38 +61,9 @@
             </v-icon>
           </v-btn> -->
         </v-card-title>
-
-        <v-card-text class="py-2 white--text text-center">
-          {{ new Date().getFullYear() }} — <strong>Vuebook</strong>
-        </v-card-text>
       </v-card>
     </v-footer>
   </v-app>
-
-  <!-- <v-app>
-    <v-app-bar app dark color="blue">
-      <v-toolbar class="header" color="primary" dark fixed app>
-        <v-toolbar-title>Vuebook Dashboard </v-toolbar-title>
-        <div id="nav">
-          <router-link to="/"><v-btn text rounded>Home</v-btn></router-link> |
-          <router-link to="/register"><v-btn text rounded>Register</v-btn></router-link>
-          | <router-link to="/login"><v-btn text rounded>Login</v-btn></router-link
-          ><v-btn text rounded>Contact us</v-btn>
-        </div>
-      </v-toolbar>
-      <div class="app-layout-content">
-        <v-container fluid class="content">
-          <router-view> </router-view>
-        </v-container>
-      </div>
-    </v-app-bar>
-
-    <v-content> </v-content>
-  </v-app>
-<v-app>
-    <v-container> </v-container>
-    <router-view />
-  </v-app>   -->
 </template>
 <script>
 export default {
