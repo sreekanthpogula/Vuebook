@@ -54,24 +54,22 @@
               <v-icon medium>mdi-linkedin</v-icon>
             </span>
           </v-btn>
-
-          <!-- <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
-          </v-btn> -->
         </v-card-title>
       </v-card>
     </v-footer>
   </v-app>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "App",
   data() {
     return {
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
     };
+  },
+  computed: {
+    ...mapGetters(["user"]),
   },
 };
 </script>

@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-parsing-error 
 <template>
   <v-app>
     <v-main>
@@ -11,7 +10,11 @@
               </v-toolbar>
               <v-card-text>
                 <form ref="form" @submit.prevent="login">
-                  <v-text-field v-model="email" label="Email" prepend-icon="mdi-email" />
+                  <v-text-field
+                    v-model="username"
+                    label="Username"
+                    prepend-icon="mdi-email"
+                  />
                   <v-text-field
                     v-model="password"
                     name="password"
@@ -54,96 +57,39 @@
     </v-main>
   </v-app>
 </template>
-// import { useRouter } from "vue-router"; // import axios from "axios"; // export default
-{ // name: "LoginComponent", // showPassword: false, // errorMessage: "", // password:
-false, // setup() { // const router = useRouter(); // const submit = async (e) => { //
-const form = new FormData(e.target); // const inputs = Object.fromEntries(form.entries());
-// const { data } = await axios.post("login", inputs, { // withCredentials: true, // });
-// axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`; // await
-router.push("/dashboard"); // }; // return { // submit, // }; // }, // }; //
 <script>
+import axios from "axios";
 export default {
-  name: "LoginUser",
+  name: "LoginComponent",
   data() {
     return {
-      email: "",
-      password: "",
-      status: null,
+      password: "0lelplR",
+      username: "kminchelle",
     };
   },
   methods: {
     login() {
-      this.$store
-        .dispatch("login", {
-          email: this.email,
+      axios
+        .post("https://dummyjson.com/auth/login", {
           password: this.password,
+          username: this.username,
         })
-        .then(() => {
-          this.$router.push({ name: "dashboard" });
+        .then((response) => {
+          console.log(response.data);
+          localStorage.setItem("token", response.data.access_token);
+          this.$store.dispatch("updateuser", response.data);
+          this.$router.push("/");
         })
-        .catch((err) => {
-          this.status = err.response.status;
+        .catch((error) => {
+          console.log(error);
         });
     },
-  },
-};
-</script>-->
-<template>
-  <main class="form-signin">
-    <form @submit.prevent="submit">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-      <div class="form-floating">
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          placeholder="name@example.com"
-        />
-        <label>Email</label>
-      </div>
-
-      <div class="form-floating">
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          placeholder="Password"
-        />
-        <label>Password</label>
-      </div>
-
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-    </form>
-  </main>
-</template>
-
-<script>
-import { useRouter } from "vue-router";
-import axios from "axios";
-
-export default {
-  name: "LoginComponent",
-  setup() {
-    const router = useRouter();
-
-    const submit = async (e) => {
-      const form = new FormData(e.target);
-
-      const inputs = Object.fromEntries(form.entries());
-
-      const { data } = await axios.post("login", inputs, {
-        withCredentials: true,
-      });
-
-      axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-
-      await router.push("/");
-    };
-
-    return {
-      submit,
-    };
+    initForm() {
+      return {
+        username: null,
+        password: null,
+      };
+    },
   },
 };
 </script>

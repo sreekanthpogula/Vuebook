@@ -153,7 +153,18 @@ const router = new VueRouter({
 
 })
 
+// router.beforeEach((to, from, next) => {
+//   // redirect to login page if user is not logged in and trying to access a restricted page
+//   const publicPages = ['/authenticate', '/']
+//   const authRequired = !publicPages.includes(to.path)
+//   const loggedIn = localStorage.getItem('user')
 
+//   if (authRequired && !loggedIn) {
+//     return next('/authenticate')
+//   }
+
+//   next()
+// })
 router.beforeEach(consoleRouterGuard)
 
 router.beforeEach((to, from, next) => {
@@ -193,4 +204,5 @@ router.afterEach((to, from) => {
 router.onError(err => {
   console.error('Handling this error', err.message)
 })
+
 export default router;

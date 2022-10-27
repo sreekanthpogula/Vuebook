@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 import moduleA from '../store/moduleA'
 import moduleB from '../store/moduleB' 
+import moduleC from '../store/moduleC'
 
 
 Vue.use(Vuex)
@@ -10,11 +11,12 @@ const store = new Vuex.Store({
   modules: {
     a: moduleA,
     b: moduleB,
+    c: moduleC,
   }
 })
 store.state.a
 store.state.b
-
+store.state.c
 export default store
 
 
