@@ -8,7 +8,7 @@
           <v-btn
             class="v-btn white--text mx-1 px-6"
             elevation="2"
-            href="/login"
+            to="/login"
             x-small
             rounded
             :style="{ 'background-color': hover ? '#BB86FC' : 'rgb(25 118 210)' }"

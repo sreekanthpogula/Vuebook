@@ -142,6 +142,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
+    name: 'Error',
     component: Error
   },
 ];

@@ -77,7 +77,7 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
-          localStorage.setItem("token", response.data.access_token);
+          localStorage.setItem("token", response.data.token);
           this.$store.dispatch("updateuser", response.data);
           this.$router.push("/");
         })

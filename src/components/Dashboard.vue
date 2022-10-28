@@ -15,7 +15,7 @@
                 <v-list-item-title class="text-h5">
                   {{ user.username }}
                 </v-list-item-title>
-                <v-btn v-on:click="logout" to="*">logout</v-btn>
+                <v-btn @click="logout">logout</v-btn>
               </v-list-item-content>
             </v-list-item>
           </v-list-item>
@@ -83,7 +83,9 @@ export default {
   },
   methods: {
     logout() {
-      this.$router.replace({ name: "login" });
+      localStorage.removeItem("token");
+      this.$store.dispatch("updateuser", null);
+      this.$router.replace({ name: "Error" });
     },
   },
   computed: {

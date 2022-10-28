@@ -21,7 +21,6 @@
             elevation="2"
             rounded
             :style="{ 'background-color': hover ? 'black' : 'rgb(25 118 210)' }"
-            @click="logout"
             to="/dashboard/recentchats"
           >
             <span>DashBoard</span>
