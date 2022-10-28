@@ -23,6 +23,7 @@ import VueRouter from 'vue-router'
 // import afterEach from 'vue-router'
 // import onError from  'vue-router'
 
+import error from '@/components/error.vue';
 
 Vue.use(Router)
 const routes = [
@@ -33,8 +34,8 @@ const routes = [
     path: '/forgot-password',
     name: 'ForgotPassword',
     component: () => import('../components/ForgotPassword.vue')
-  },
-  {
+    },
+    {
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard,
@@ -138,6 +139,10 @@ const routes = [
     //   component: HomePage,
     // },
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: error
   },
 ];
 

@@ -1,15 +1,15 @@
 <template>
   <v-app>
-    <v-header>
+    <header>
       <v-toolbar class="header" color="primary" dark fixed app>
         <v-toolbar-title>Vuebook</v-toolbar-title>
         <div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/register">Sign up</router-link> |
-          <router-link to="/login">Login</router-link>
+          <v-btn primary><router-link to="/">Home</router-link></v-btn> |
+          <v-btn><router-link to="/register">Sign up</router-link></v-btn> |
+          <v-btn><router-link to="/login">Login</router-link></v-btn>
         </div>
       </v-toolbar>
-    </v-header>
+    </header>
     <router-view />
     <v-footer dark padless>
       <v-card class="flex" flat tile>

@@ -22,7 +22,7 @@
                 <li>downloads:{{ image.downloads }}.</li>
               </ul>
             </h1>
-            <p>Message to grand child: {{ message }}</p>
+            <!-- <p>Message to grand child: {{ message }}</p> -->
           </div>
         </div>
       </v-row>

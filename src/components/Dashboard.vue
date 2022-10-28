@@ -8,14 +8,14 @@
         <v-list>
           <v-list-item class="px-2">
             <v-list-item-avatar>
-              <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+              <v-img :src="user.image"></v-img>
             </v-list-item-avatar>
             <v-list-item link>
               <v-list-item-content>
-                <v-list-item-title class="text-h6">
-                  {{ username || "Sreekanth Pogula" }}
+                <v-list-item-title class="text-h5">
+                  {{ user.username }}
                 </v-list-item-title>
-                <v-btn v-on:click="logout" to="/">logout</v-btn>
+                <v-btn v-on:click="logout" to="*">logout</v-btn>
               </v-list-item-content>
             </v-list-item>
           </v-list-item>
@@ -56,15 +56,16 @@
         <!-- <v-btn class="btn btn-primary btn-lg">
           <slot> Click me </slot>
         </v-btn> -->
-        <v-btn class="mx-1 white--text" elevation="1" rounded color="#1976d2">
+        <!-- <v-btn class="mx-1 white--text" elevation="1" rounded color="#1976d2">
           <img src="" /> &#128074;SMASH THIS BUTTON TO GET $500!!!
-        </v-btn>
+        </v-btn> -->
       </v-container>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "DashBoard",
   data() {
@@ -77,13 +78,16 @@ export default {
         { title: "About", icon: "mdi-information", xyz: "About" },
       ],
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-      username: this.$route.params.username,
+      // username: this.$route.params.username,
     };
   },
   methods: {
     logout() {
       this.$router.replace({ name: "login" });
     },
+  },
+  computed: {
+    ...mapGetters(["user"]),
   },
 };
 </script>

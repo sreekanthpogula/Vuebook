@@ -63,6 +63,9 @@ export default {
   name: "LoginComponent",
   data() {
     return {
+      showPassword: false,
+      errorMessage: "",
+      status: "",
       password: "0lelplR",
       username: "kminchelle",
     };
@@ -83,12 +86,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
-    initForm() {
-      return {
-        username: null,
-        password: null,
-      };
     },
   },
 };

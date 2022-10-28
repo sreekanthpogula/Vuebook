@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <v-app>
     <v-main>
@@ -116,28 +115,28 @@ export default {
         (value) => value === this.password || "The password confirmation does not match.",
       ],
       status: null,
-      form: this.initForm(),
     };
   },
   methods: {
     register() {
       axios
-        .post("api/auth/register", this.form)
-        .then(() => {
-          this.form = this.initForm();
-          this.$router.push("/login");
+        .post("https://dummyjson.com/users/add", {
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+          password: this.password,
+          value: this.value,
+          confirmPassword: this.confirmPassword,
+        })
+        .then((response) => {
+          console.log(response.data);
+          localStorage.setItem("token", response.data.access_token);
+          this.$store.dispatch("updateuser", response.data);
+          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);
         });
-    },
-    initForm() {
-      return {
-        name: null,
-        email: null,
-        password: null,
-        password_confirmation: null,
-      };
     },
   },
 };

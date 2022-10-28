@@ -1,9 +1,7 @@
 
 const moduleC = {
     state: {
-        user: {
-            name: ''
-        }
+        user: null,
     },
 
     getters: {
@@ -13,8 +11,8 @@ const moduleC = {
     },
 
     actions: {
-        updateuser(context, data) {
-            context.commit('updateuser', data)
+        updateuser({ commit }, data) {
+            commit('updateuser', data)
             console.log("updateduser");
         }
         
