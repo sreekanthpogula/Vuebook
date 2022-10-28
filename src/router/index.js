@@ -23,7 +23,7 @@ import VueRouter from 'vue-router'
 // import afterEach from 'vue-router'
 // import onError from  'vue-router'
 
-import error from '@/components/error.vue';
+import Error from '@/components/Error.vue';
 
 Vue.use(Router)
 const routes = [
@@ -142,7 +142,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    component: error
+    component: Error
   },
 ];
 

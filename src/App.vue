@@ -4,9 +4,9 @@
       <v-toolbar class="header" color="primary" dark fixed app>
         <v-toolbar-title>Vuebook</v-toolbar-title>
         <div id="nav">
-          <v-btn primary><router-link to="/">Home</router-link></v-btn> |
-          <v-btn><router-link to="/register">Sign up</router-link></v-btn> |
-          <v-btn><router-link to="/login">Login</router-link></v-btn>
+          <router-link to="/">Home</router-link> |
+          <router-link to="/register">Sign up</router-link> |
+          <router-link to="/login">Login</router-link>
         </div>
       </v-toolbar>
     </header>

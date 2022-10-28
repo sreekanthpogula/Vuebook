@@ -10,7 +10,6 @@
             <v-card-text>
               <form ref="form" @submit.prevent="">
                 <v-text-field
-                  v-model="password"
                   name="Email"
                   label="Enter Email address Registered."
                   required
@@ -20,9 +19,7 @@
                 <v-btn type="submit" class="mt-4" color="primary" value="log in"
                   >Reset Password</v-btn
                 >
-                <div class="grey--text mt-4" v-on:click="isRegister = !isRegister">
-                  {{ toggleMessage }}
-                </div>
+                <div class="grey--text mt-4" v-on:click="isRegister = !isRegister"></div>
               </form>
             </v-card-text>
           </v-card>

@@ -30,7 +30,6 @@
                     <router-link to="/forgot-password">Forgot password</router-link>
                   </p>
                   <div class="red--text">{{ errorMessage }}</div>
-                  <p v-if="status === 400">Invalid login info.</p>
                   <v-btn type="submit" class="mt-4" color="primary" value="log in"
                     >Login</v-btn
                   >
@@ -65,7 +64,6 @@ export default {
     return {
       showPassword: false,
       errorMessage: "",
-      status: "",
       password: "0lelplR",
       username: "kminchelle",
     };

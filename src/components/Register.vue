@@ -55,6 +55,7 @@
                     name="confirmPassword"
                     label="Confirm Password"
                     type="password"
+                    :rules="confirmPasswordRules"
                     placeholder="confirm password"
                     prepend-icon="mdi-lock"
                     :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
@@ -100,6 +101,8 @@ export default {
   name: "RegisterComponent",
   data() {
     return {
+      showPassword: false,
+      show: false,
       firstname: "",
       lastname: "",
       email: "",
